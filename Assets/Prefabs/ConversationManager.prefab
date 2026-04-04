@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1311249835568238718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581901956796782466}
+  - component: {fileID: 2684024005323760421}
+  m_Layer: 0
+  m_Name: ConversationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581901956796782466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311249835568238718}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 278.59024, y: 73.01386, z: 16.655697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2684024005323760421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311249835568238718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e92d96f9fecb904e8b124d518518b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactButton: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  dialogueText: {fileID: 0}
+  conversation:
+  - text: Ma'am cafeteria lady! There seems to be an issue.
+  - text: What is it, little girl?
+  - text: I received the wrong change! I need more!
+  - text: What?! That can't be right. Its from the machine!
+  - text: No, I recomputed everything! I'm sure it's an error.
+  - text: Hmm, how can we check... OH! Detective! I didn't see you there. I was too
+      focused.
+  - text: Would you mind checking the receipt if it computed correctly?
+  - text: Where is it though, little girl?
+  - text: I left the receipt on top of a table, by the chair closest to the trash
+      can near the poster.
+  - text: I see. Please help us, detective!
