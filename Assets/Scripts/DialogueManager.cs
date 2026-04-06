@@ -1,63 +1,65 @@
 using UnityEngine;
-using TMPro; // Para sa TextMeshPro
-using VIDE_Data; // Para sa VIDE System
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager instance;
+
     [Header("UI Elements")]
-    public GameObject dialogPanel; // Yung panel na i-ha-hide/show
-    public TMP_Text nameText;      // Para sa NameText
-    public TMP_Text dialogueText;  // Para sa Text (TMP)
+    public GameObject dialogPanel;
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
 
-    void Start()
+    [Header("Player Control")]
+    public MonoBehaviour cameraLookScript;
+
+    private string[] currentLines;
+    private int currentLineIndex = 0;
+    private NPC currentNPC; // Bagong memorya para matandaan kung sino ang kausap
+
+    void Awake() { instance = this; }
+
+    void Start() { dialogPanel.SetActive(false); }
+
+    // --- NAGBAGO DITO: Idinagdag natin ang "NPC npc" ---
+    public void StartDialogue(string npcName, string[] lines, NPC npc)
     {
-        // Siguraduhing nakatago ang UI sa simula
-        dialogPanel.SetActive(false);
+        currentNPC = npc; // Tandaan kung sino ang kausap natin
+        currentLines = lines;
+        currentLineIndex = 0;
+
+        nameText.text = npcName;
+        dialogueText.text = currentLines[currentLineIndex];
+
+        dialogPanel.SetActive(true);
+
+        if (cameraLookScript != null) { cameraLookScript.enabled = false; }
     }
 
-    // Ito ang tatawagin ng Trigger script natin
-    public void StartDialogue(VIDE_Assign npc)
+    public void NextLine()
     {
-        if (!VD.isActive)
+        currentLineIndex++;
+        if (currentLineIndex < currentLines.Length)
         {
-            VD.BeginDialogue(npc); // Simulan ang VIDE
-            dialogPanel.SetActive(true); // I-show ang UI
-            UpdateUI(); // I-load ang unang text
-        }
-    }
-
-    // Ito ang tatawagin ng Next Button
-    public void NextNode()
-    {
-        if (VD.isActive)
-        {
-            VD.Next(); // Pumunta sa susunod na node sa VIDE Editor
-            UpdateUI();
-        }
-    }
-
-    // Dito pinapalitan ang laman ng text sa screen
-    void UpdateUI()
-    {
-        VD.NodeData data = VD.nodeData; // Kunin ang current data mula sa VIDE
-
-        if (data.isEnd) // Kung tapos na ang usapan
-        {
-            VD.EndDialogue();
-            dialogPanel.SetActive(false); // Itago ulit ang UI
-            return;
-        }
-
-        // Kung Player o NPC ang nagsasalita, ilagay sa text box
-        if (data.isPlayer)
-        {
-            nameText.text = "Detective";
-            dialogueText.text = data.comments[data.commentIndex]; // Kunin ang text
+            dialogueText.text = currentLines[currentLineIndex];
         }
         else
         {
-            nameText.text = data.tag; // Kunin yung tag na "Ben"
-            dialogueText.text = data.comments[data.commentIndex];
+            EndDialogue();
+        }
+    }
+
+    void EndDialogue()
+    {
+        dialogPanel.SetActive(false);
+
+        if (cameraLookScript != null) { cameraLookScript.enabled = true; }
+
+        // --- NAGBAGO DITO ---
+        // Kapag tapos na ang dialogue, i-trigger natin yung "On Dialogue End" ng NPC na iyon!
+        if (currentNPC != null && currentNPC.onDialogueEnd != null)
+        {
+            currentNPC.onDialogueEnd.Invoke();
         }
     }
 }
