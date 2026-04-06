@@ -6,6 +6,8 @@ using TMPro;
 [System.Serializable]
 public class DialogueLine
 {
+    public string speakerName; 
+    [TextArea(3, 10)]          
     public string text;
 }
 
@@ -13,6 +15,7 @@ public class ConversationManager : MonoBehaviour
 {
     public Button interactButton;
     public GameObject dialogueCanvas;
+    public TextMeshProUGUI nameText;     
     public TextMeshProUGUI dialogueText;
     public DialogueLine[] conversation;
 
@@ -61,6 +64,8 @@ public class ConversationManager : MonoBehaviour
     {
         if (index < conversation.Length)
         {
+            
+            if (nameText != null) nameText.text = conversation[index].speakerName;
             if (dialogueText != null) dialogueText.text = conversation[index].text;
         }
     }
