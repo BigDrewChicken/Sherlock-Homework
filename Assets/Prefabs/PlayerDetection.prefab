@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7190505394190155662}
   - component: {fileID: 2759898188582480872}
   - component: {fileID: 514524744634838370}
-  - component: {fileID: -4254497565862365383}
+  - component: {fileID: 3673020641548618255}
   m_Layer: 0
   m_Name: PlayerDetection
   m_TagString: Untagged
@@ -63,7 +63,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-4254497565862365383
+--- !u!114 &3673020641548618255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,6 +72,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8822415215944033627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241a197e455ac0443ae1b2e89fa03600, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eee75021e6118f43a1cecccacc9c8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conversationManager: {fileID: 0}
+  interactButtonObject: {fileID: 0}
+  interactButtonText: {fileID: 0}

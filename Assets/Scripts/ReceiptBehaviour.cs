@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class CaseFile_MathLogic : MonoBehaviour
+public class ReceiptBehavior : MonoBehaviour
 {
     [Header("UI Text Displays")]
     public TextMeshProUGUI item1Text;
