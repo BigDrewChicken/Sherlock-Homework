@@ -8,31 +8,38 @@ using UnityEditor;
 
 public class ReceiptInteract : Interactable
 {
-    public GameObject receiptCanvas;      
-    public GameObject hintCanvas;         
-    public GameObject interactButton;
-    public TextMeshProUGUI hintText; 
-    
-    [Header("References")]
+    [Header("Conversation References")]
+    public ConversationManager conversationManager;
+    public DialogueLine[] preNPCDialogue;    // Played if you haven't talked to the NPC yet
+    public DialogueLine[] postNPCDialogue;   // Played the first time you look at the receipt after talking to NPC
+    public DialogueLine[] mathErrorSubtotal; // Played if the player gets the math wrong
+    public DialogueLine[] mathErrorTax;      
+    public DialogueLine[] solvedDialogue;    // Played when interacting with the receipt after it's finished
+
+    [Header("UI & Input")]
+    public GameObject receiptCanvas;      // The actual Puzzle UI
+    public GameObject interactButton;    // The [F] prompt
     public StarterAssetsInputs playerInputs;
-    public MonoBehaviour playerController;
-    public GameObject narrativeDialogueCanvas; 
+    public MonoBehaviour playerController; // To disable player movement logic
+    public Transform playerCamera;
 
-    [Header("Error Settings")]
-    public GameObject errorCanvas; 
-    public TextMeshProUGUI errorText; 
+    [Header("Facing Settings")]
+    [Range(0f, 1f)] public float facingThreshold = 0.8f;
 
-    public static bool isReceiptSolved = false; 
+    // GLOBAL STATE: Shared with other scripts to know the puzzle is finished
+    public static bool isReceiptSolved = false;
+    
+    // LOCAL STATES
+    private bool isInteracting = false;      // True ONLY when the Puzzle UI is open
+    private bool hasSeenIntroDialogue = false; // Tracks if the player has read the "receipt intro"
+    private bool waitingForPuzzleOpen = false; // Logic bridge to open UI after dialogue ends
 
-    private bool isInteracting = false;
-    private bool isSolved = false;
-    private bool hasSeenNarrative = false;
-    private bool isShowingError = false; 
-
+    #region Editor Helper
+    // This part ensures that if you leave the receipt UI open in the Unity Editor,
+    // it automatically hides itself when you're not playing so it doesn't block your view.
     private void OnValidate()
     {
 #if UNITY_EDITOR
-        // This schedules the deactivation to happen AFTER Unity is done validating
         EditorApplication.delayCall += DisableCanvasesInEditor;
 #endif
     }
@@ -40,140 +47,175 @@ public class ReceiptInteract : Interactable
     private void DisableCanvasesInEditor()
     {
 #if UNITY_EDITOR
-        // Unsubscribe immediately so it only runs once per change
         EditorApplication.delayCall -= DisableCanvasesInEditor;
-
         if (this == null || Application.isPlaying) return;
-
         if (receiptCanvas != null) receiptCanvas.SetActive(false);
-        if (hintCanvas != null) hintCanvas.SetActive(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        if (errorCanvas != null) errorCanvas.SetActive(false);
 #endif
     }
+    #endregion
 
     void Start()
     {
         isReceiptSolved = false;
-        ForceEnd(); // Clean state at start
+        if (playerCamera == null && Camera.main != null) playerCamera = Camera.main.transform;
+        
+        // Ensure everything is reset to a clean gameplay state
+        ForceEnd(); 
     }
 
-    // ... (Keep the rest of your Update, OnInteract, etc., exactly as they were)
-    
     protected override void Update()
     {
-        if (isShowingError && Input.GetKeyDown(KeyCode.F))
-        {
-            CloseErrorHint();
-        }
-
         base.Update();
 
-        if (isInteracting && playerInputs != null)
+        // Check if the dialogue system is currently active
+        bool isTalking = conversationManager != null && conversationManager.IsTalking();
+
+        // TRANSITION LOGIC:
+        // If we were waiting for the intro dialogue to finish, open the puzzle now.
+        if (waitingForPuzzleOpen && !isTalking)
         {
+            waitingForPuzzleOpen = false;
+            OpenReceiptPuzzle();
+        }
+
+        // PROMPT LOGIC:
+        // Show the [F] prompt if the player is close, not already in the UI, and not talking.
+        if (playerDetected && !isInteracting && !isTalking)
+        {
+            ShowPrompt(IsPlayerFacing());
+        }
+        else
+        {
+            ShowPrompt(false);
+        }
+
+        // INPUT FREEZING:
+        if ((isInteracting || isTalking) && playerInputs != null)
+        {
+            // Always stop the player from walking away during any interaction
             playerInputs.move = Vector2.zero;
-            playerInputs.look = Vector2.zero;
+            
+            // CAMERA LOCK LOGIC:
+            // We only set 'look' to zero if the PUZZLE UI is open (isInteracting).
+            // If it's just a monologue (isTalking), we don't zero it, leaving the camera FREE.
+            if (isInteracting)
+            {
+                playerInputs.look = Vector2.zero;
+            }
+
             playerInputs.jump = false;
             playerInputs.sprint = false;
         }
+
+        // DIALOGUE ADVANCEMENT:
+        // If the Puzzle UI is open but an error message (dialogue) is appearing over it,
+        // allow the [F] key to advance that text.
+        if (isInteracting && isTalking && Input.GetKeyDown(KeyCode.F))
+        {
+            conversationManager.OnInteractPressed();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // Force the prompt button off if a conversation starts to avoid visual overlapping
+        if (conversationManager != null && conversationManager.IsTalking())
+        {
+            if (interactButton != null && interactButton.activeSelf) interactButton.SetActive(false);
+        }
+    }
+
+    public override void ShowPrompt(bool show)
+    {
+        if (interactButton != null) interactButton.SetActive(show);
     }
 
     public override void OnInteract()
     {
-        if (isSolved || isShowingError) return;
-        ShowPrompt(false);
+        // If dialogue is playing, 'F' acts as the "Next" button
+        if (conversationManager != null && conversationManager.IsTalking())
+        {
+            conversationManager.OnInteractPressed();
+            return;
+        }
 
+        // Ignore if already in the puzzle or looking away
+        if (isInteracting || !IsPlayerFacing()) return;
+
+        // STATE 1: Already Solved
+        if (isReceiptSolved)
+        {
+            conversationManager.StartManualConversation(solvedDialogue);
+            return;
+        }
+
+        // STATE 2: Haven't talked to NPC yet
         if (!NPCInteract.hasFinishedFirstTalk)
         {
-            ShowWorldHint("(Hmm, food and receipt unattended.. did something happen? Best I check around to see what happened.)");
+            conversationManager.StartManualConversation(preNPCDialogue);
             return;
         }
 
-        if (!hasSeenNarrative)
+        // STATE 3: First time opening receipt after talking to NPC
+        if (!hasSeenIntroDialogue)
         {
-            OpenNarrative();
+            hasSeenIntroDialogue = true;
+            waitingForPuzzleOpen = true; // Signals Update() to open puzzle once this dialogue is done
+            conversationManager.StartManualConversation(postNPCDialogue); 
             return;
         }
 
-        EnterReceiptPuzzle();
+        // STATE 4: Normal Puzzle Opening
+        OpenReceiptPuzzle();
     }
 
-    public void ShowMathError(string message)
-    {
-        if (errorCanvas != null)
-        {
-            isShowingError = true;
-            if (errorText != null) errorText.text = message;
-            errorCanvas.SetActive(true);
-        }
-    }
-
-    private void CloseErrorHint()
-    {
-        isShowingError = false;
-        if (errorCanvas != null) errorCanvas.SetActive(false);
-    }
-
-    private void OpenNarrative()
+    public void OpenReceiptPuzzle()
     {
         isInteracting = true;
+        
+        // Stop the player controller script
         if (playerController != null) playerController.enabled = false;
-        if (playerInputs != null) playerInputs.SetCursorLocked(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(true);
-        hasSeenNarrative = true;
+        
+        // FREE THE MOUSE: Allow the player to click on input fields
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-    }
-
-    public void EnterReceiptPuzzle()
-    {
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        isInteracting = true;
-        if (playerController != null) playerController.enabled = false;
         if (playerInputs != null) playerInputs.SetCursorLocked(false);
+        
+        // Show the Canvas
         if (receiptCanvas != null) receiptCanvas.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
-    public void ShowWorldHint(string message)
+    public void TriggerMathError(bool isSubtotalError)
     {
-        if (hintCanvas != null)
-        {
-            if (hintText != null) hintText.text = message;
-            hintCanvas.SetActive(true);
-            CancelInvoke("HideHint");
-            Invoke("HideHint", 3f);
-        }
+        // Plays dialogue without closing the puzzle UI
+        DialogueLine[] selectedError = isSubtotalError ? mathErrorSubtotal : mathErrorTax;
+        conversationManager.StartManualConversation(selectedError);
     }
 
-    private void HideHint() { if (hintCanvas != null) hintCanvas.SetActive(false); }
-
-    public override void ShowPrompt(bool show)
+    private bool IsPlayerFacing()
     {
-        if (isSolved || isShowingError) return;
-        if (interactButton != null) interactButton.SetActive(show);
+        if (playerCamera == null) return false;
+        Vector3 dir = (transform.position - playerCamera.position).normalized;
+        float dot = Vector3.Dot(playerCamera.forward, dir);
+        return dot > facingThreshold;
     }
 
     public override void ForceEnd()
     {
+        // RE-LOCK THE MOUSE: Return control to the camera
         isInteracting = false;
-        isShowingError = false;
+        waitingForPuzzleOpen = false;
         if (playerController != null) playerController.enabled = true;
         if (receiptCanvas != null) receiptCanvas.SetActive(false);
-        if (hintCanvas != null) hintCanvas.SetActive(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        if (errorCanvas != null) errorCanvas.SetActive(false);
         if (playerInputs != null) playerInputs.SetCursorLocked(true);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void CloseInteraction(bool solvedCorrectly)
     {
-        if (solvedCorrectly) 
-        {
-            isSolved = true;
-            isReceiptSolved = true; 
-        }
+        // Called by the "Submit" button on your receipt UI
+        if (solvedCorrectly) isReceiptSolved = true; 
         ForceEnd();
     }
 }
