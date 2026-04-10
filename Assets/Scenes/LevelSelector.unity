@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 10
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,6 +66,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 2
@@ -486,14 +489,15 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410440164}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -537,12 +541,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &1410440166
 Transform:
   m_ObjectHideFlags: 0
@@ -570,23 +570,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_Version: 4
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1 &1439745940
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,10 +975,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1015536235}
     m_Modifications:
+    - target: {fileID: 1238376145832831838, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_text
+      value: A cafeteria catastrophe! Students and the cafeteria lady are having
+        problems with the receipts. Help them!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238376145832831838, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_fontSize
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238376145832831838, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_margin.z
+      value: 3.7894135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238376145832831838, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238376145832831838, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1352998713221036518, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
       propertyPath: scene
       value: 
       objectReference: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+    - target: {fileID: 1850235463065936862, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91896e812c5641e489592aeb900342db, type: 3}
     - target: {fileID: 2029905946891667249, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1072,7 +1091,27 @@ PrefabInstance:
     - target: {fileID: 7660000574439330936, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
       propertyPath: scene
       value: 
-      objectReference: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+      objectReference: {fileID: 102900000, guid: b14c517846087dc45961dbe485cea5b7, type: 3}
+    - target: {fileID: 8936832678416359883, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975574636300764943, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 126.1016
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975574636300764943, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 46.6908
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975574636300764943, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.2757
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975574636300764943, guid: 5a1b688550dcf1a409bd6dbf0790a99a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

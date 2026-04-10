@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1311249835568238718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581901956796782466}
+  - component: {fileID: 2684024005323760421}
+  m_Layer: 0
+  m_Name: ConversationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581901956796782466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311249835568238718}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 278.59024, y: 73.01386, z: 16.655697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2684024005323760421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311249835568238718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e92d96f9fecb904e8b124d518518b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialConversation:
+  - speakerName: Little Kid
+    text: Ms. Cafeteria Lady, I told you, my change is short!
+  - speakerName: Cafeteria Lady
+    text: I'm sorry, but I just can't believe that. The machine spat that out!
+  - speakerName: Little Kid
+    text: But I recomputed everything, I was short!
+  - speakerName: Cafeteria Lady
+    text: Hmm, how can we solve this...
+  - speakerName: Cafeteria Lady
+    text: Ah! Detective! I didn't see you there.
+  - speakerName: Cafeteria Lady
+    text: 'You''re a trustworthy person who knows how to compute for percentages
+      and increases, right? '
+  - speakerName: Cafeteria Lady
+    text: Would you mind recomputing the receipt that the machine printed? I'm sure
+      it's right.
+  - speakerName: Cafeteria Lady
+    text: Speaking of, where is it, little girl?
+  - speakerName: Little Kid
+    text: "I left the food and receipt over by a poster, and I\u2019m sure there\u2019s
+      a trash can nearby too."
+  - speakerName: Cafeteria Lady
+    text: Hmm, I see. Detective, would you mind checking that receipt and recomputing
+      the math for us? Thank you!
+  - speakerName: Little Kid
+    text: Please help, detective!
+  solvedConversation:
+  - speakerName: 
+    text: 
+  interactButton: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  playerInputs: {fileID: 0}
+  inputCooldown: 1
+  typingSpeed: 0.04

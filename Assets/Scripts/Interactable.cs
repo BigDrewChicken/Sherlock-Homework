@@ -1,71 +1,37 @@
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
-    public GameObject interactUI;
-    public Camera mainCamera;
-    public Camera interactionCamera;
-    public GameObject player;
+    protected bool playerDetected = false;
 
-    private bool playerInRange = false;
-    private bool isInteracting = false;
-
-    void Start()
+    protected virtual void Update()
     {
-        interactUI.SetActive(false);
-        interactionCamera.gameObject.SetActive(false);
-    }
-
-    void Update()
-    {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F))
+        if (playerDetected && Input.GetKeyDown(KeyCode.F))
         {
-            if (!isInteracting)
-            {
-                StartInteraction();
-            }
-            else
-            {
-                StopInteraction();
-            }
+            OnInteract();
         }
     }
 
-    void StartInteraction()
-    {
-        isInteracting = true;
-
-        mainCamera.gameObject.SetActive(false);
-        interactionCamera.gameObject.SetActive(true);
-
-        player.SetActive(false); // disable movement
-    }
-
-    void StopInteraction()
-    {
-        isInteracting = false;
-
-        mainCamera.gameObject.SetActive(true);
-        interactionCamera.gameObject.SetActive(false);
-
-        player.SetActive(true);
-    }
+    public abstract void OnInteract(); 
+    public abstract void ShowPrompt(bool show);
+    public abstract void ForceEnd();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.name == "PlayerCapsule")
         {
-            playerInRange = true;
-            interactUI.SetActive(true);
+            playerDetected = true;
+            ShowPrompt(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.name == "PlayerCapsule")
         {
-            playerInRange = false;
-            interactUI.SetActive(false);
+            playerDetected = false;
+            ShowPrompt(false);
+            ForceEnd();
         }
     }
 }
