@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-using StarterAssets; // Importanteng namespace para sa gamit mong player
+using StarterAssets;
 
 [System.Serializable]
 public class DialogueLine
@@ -27,10 +27,15 @@ public class ConversationManager : MonoBehaviour
     [Header("Input, Movement & Facing")]
     public StarterAssetsInputs playerInputs;
 
-    // BAGONG ADD: Slot para ilagay mo ang Player object mo (yung may FirstPersonController script)
+    [Header("Clue System")]
+    public bool isGivingClue = false;
+    // Pinalitan ng DialogueLine[] para magamit mo yung Speaker Name at Typing effect!
+    public DialogueLine[] clueDialogueLines;
+
+    // Slot para ilagay mo ang Player object mo (yung may FirstPersonController script)
     public FirstPersonController firstPersonController;
 
-    // BAGONG ADD: Slot para ilagay mo si Ben (para alam kung saan titingin)
+    // Slot para ilagay mo si Ben (para alam kung saan titingin)
     public Transform benTransform;
 
     public float inputCooldown = 0.5f;
@@ -71,7 +76,16 @@ public class ConversationManager : MonoBehaviour
 
         if (!isTalking)
         {
-            activeConversation = ReceiptInteract.isReceiptSolved ? solvedConversation : initialConversation;
+            // BAGONG LOGIC: I-check kung nagbigay ba tayo ng YES sa Clue prompt
+            if (isGivingClue)
+            {
+                activeConversation = clueDialogueLines;
+            }
+            else
+            {
+                activeConversation = ReceiptInteract.isReceiptSolved ? solvedConversation : initialConversation;
+            }
+
             StartCoroutine(AnimateButtonAndStart());
         }
         else
@@ -99,16 +113,14 @@ public class ConversationManager : MonoBehaviour
         index = 0;
         if (dialogueCanvas != null) dialogueCanvas.SetActive(true);
 
-        // FIX Part A: I-disable natin ang pag-ikot ng camera ng FirstPersonController
+        // I-disable natin ang pag-ikot ng camera ng FirstPersonController
         if (firstPersonController != null)
         {
-            // Ito ang magpo-freeze sa camera rotation para hindi na nakakahilo
             firstPersonController.enabled = false;
 
-            // FIX Part B: Automatic na lumingon kay Ben
+            // Automatic na lumingon kay Ben
             if (benTransform != null)
             {
-                // Simple LookAt para humarap ang camera container kay Ben
                 firstPersonController.transform.LookAt(new Vector3(benTransform.position.x, firstPersonController.transform.position.y, benTransform.position.z));
             }
         }
@@ -116,7 +128,6 @@ public class ConversationManager : MonoBehaviour
         UpdateStep();
     }
 
-    // ... Ang ibang code ay walang bago ...
     void UpdateStep()
     {
         if (activeConversation != null && index < activeConversation.Length)
@@ -181,11 +192,20 @@ public class ConversationManager : MonoBehaviour
 
         if (dialogueCanvas != null) dialogueCanvas.SetActive(false);
 
-        // FIX Part C: I-enable ulit ang FirstPersonController pagkatapos ng usapan para makagalaw na ang player
+        // I-enable ulit ang FirstPersonController pagkatapos ng usapan
         if (firstPersonController != null)
         {
             firstPersonController.enabled = true;
         }
+
+        // BINURA NATIN DITO YUNG "isGivingClue = false;" PARA HINDI NIYA MAKALIMUTAN!
+    }
+
+    // --- IDAGDAG ITO SA PINAKABABA NG SCRIPT (Bago mag-lock bracket "}") ---
+    // Tatawagin natin ito kapag nasagot na nang tama ang Quiz!
+    public void DisableClueDialogue()
+    {
+        isGivingClue = false;
     }
 
     public void ForceEnd()
@@ -194,4 +214,10 @@ public class ConversationManager : MonoBehaviour
     }
 
     public bool IsTalking() => isTalking;
+
+    // Ito ang tatawagin ng ScienceQuiz kapag pinindot ang YES
+    public void EnableClueDialogue()
+    {
+        isGivingClue = true;
+    }
 }
