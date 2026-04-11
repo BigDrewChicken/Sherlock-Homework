@@ -1,172 +1,197 @@
 using UnityEngine;
 using StarterAssets;
 using TMPro;
-using System.Collections; 
+using System.Collections;
 
 public class NPCInteract : Interactable
 {
     [Header("Dialogue Reference")]
-    public ConversationManager conversationManager; // Reference to the script that handles text boxes
+    public ConversationManager conversationManager;
 
     [Header("UI Elements")]
-    public GameObject interactButtonObject; // The world-space prompt (e.g., the [F] popup)
-    public TextMeshProUGUI interactButtonText; // The actual text component inside the prompt
+    public GameObject interactButtonObject;
+    public TextMeshProUGUI interactButtonText;
+
+    [Header("Win State UI")]
+    public GameObject winCanvas;
+    public GameObject dialogueUI;
 
     [Header("Facing Settings")]
-    public Transform playerCamera; // Used to calculate if the player is looking at the NPC
-    [Range(0f, 1f)]
-    public float facingThreshold = 0.8f; // How directly the player must look (1.0 is perfect alignment)
+    public Transform playerCamera;
+    [Range(0f, 1f)] public float facingThreshold = 0.8f;
 
-    // GLOBAL STATE: Tells the Receipt script the player has talked to the NPC at least once
-    public static bool hasFinishedFirstTalk = false; 
-    
-    // LOCAL STATE: Used to toggle between "Initial Talk" and "Hint" logic
-    private bool hasShownIntro = false; 
-    
-    // SAFETY GATE: Prevents the prompt from flickering while variables are being updated
-    private bool isBusy = false; 
+    // Flags
+    public static bool hasFinishedFirstTalk = false;
+    private bool hasShownIntro = false;
+    private bool isBusy = false;
+    private bool winTriggered = false;
+    private bool didStartFinalDialogue = false;
+
+    private StarterAssetsInputs playerInputs;
+    private MonoBehaviour movementScript;
+
+    // STATIC TRACKING: Prevents multiple interactables from fighting over the same button
+    private static GameObject currentActivePromptOwner;
 
     void Start()
     {
-        // Auto-assign the main camera if we forgot to drag it in the inspector
-        if (playerCamera == null && Camera.main != null) 
+        if (playerCamera == null && Camera.main != null)
             playerCamera = Camera.main.transform;
 
-        // Ensure the [F] prompt is hidden when the game starts
+        playerInputs = FindFirstObjectByType<StarterAssetsInputs>();
+        
+        if (playerInputs != null)
+        {
+            movementScript = playerInputs.GetComponent("FirstPersonController") as MonoBehaviour;
+            if (movementScript == null)
+                movementScript = playerInputs.GetComponent("ThirdPersonController") as MonoBehaviour;
+        }
+
+        // Initialize UI
         if (interactButtonObject != null) interactButtonObject.SetActive(false);
+        if (winCanvas != null) winCanvas.SetActive(false);
     }
 
     protected override void Update()
     {
-        base.Update(); // Runs the detection logic from the parent Interactable script
+        base.Update();
 
-        if (conversationManager == null) return;
-
-        // Get talking state once per frame for efficiency
-        bool isTalking = conversationManager.IsTalking();
-        
-        // LOGIC: Show the prompt ONLY if:
-        // 1. Player is in trigger range (playerDetected)
-        // 2. We aren't currently mid-conversation (!isTalking)
-        // 3. We aren't in the middle of a state transition (!isBusy)
-        if (playerDetected && !isTalking && !isBusy)
+        if (conversationManager == null || winTriggered)
         {
-            // Check if player is physically looking at the NPC
-            ShowPrompt(IsPlayerFacing());
+            if (winTriggered && playerInputs != null) playerInputs.move = Vector2.zero;
+            return;
+        }
+
+        bool isTalking = conversationManager.IsTalking();
+
+        // WIN TRIGGER LOGIC
+        if (ReceiptInteract.isReceiptSolved && didStartFinalDialogue && !isTalking)
+        {
+            TriggerWinSequence();
+            return;
+        }
+
+        // IMPROVED PROMPT LOGIC
+        if (playerDetected && !isTalking && !isBusy && IsPlayerFacing())
+        {
+            ShowPrompt(true);
         }
         else
         {
-            // Immediately hide prompt if any condition fails (e.g., player walks away or starts talking)
-            if (interactButtonObject.activeSelf) ShowPrompt(false);
-        }
-    }
-
-    private void LateUpdate()
-    {
-        // SAFETY: LateUpdate runs after animations/logic.
-        // If a conversation just started this frame, force the button off so it doesn't overlap dialogue UI.
-        if (conversationManager != null && conversationManager.IsTalking())
-        {
-            if (interactButtonObject.activeSelf) interactButtonObject.SetActive(false);
+            // Only turn the button off if THIS specific script was the one who turned it on
+            if (currentActivePromptOwner == gameObject)
+            {
+                ShowPrompt(false);
+            }
         }
     }
 
     public override void OnInteract()
     {
-        // Prevent interaction if manager is missing, busy, or player is looking away
-        if (conversationManager == null || isBusy || !IsPlayerFacing()) return;
+        if (conversationManager == null || isBusy || !IsPlayerFacing() || winTriggered) return;
 
-        // CHOICE LOGIC: Decide which dialogue set to play
-        // If we already saw the intro AND the receipt puzzle isn't finished yet...
-        if (hasShownIntro && !ReceiptInteract.isReceiptSolved)
+        if (ReceiptInteract.isReceiptSolved)
         {
-            // Play the "Hint" dialogue set
+            conversationManager.OnInteractPressed();
+            didStartFinalDialogue = true; 
+        }
+        else if (hasShownIntro)
+        {
             conversationManager.OnHintPressed();
         }
         else
         {
-            // Play the standard/initial dialogue set
             conversationManager.OnInteractPressed();
-            
-            // Start a delay before the button text changes from "Listen" to "Hint"
-            // This prevents a visual "glitch" where the button text swaps while the dialogue is opening
             StartCoroutine(DelayedStateUpdate());
         }
 
-        // Hide prompt immediately upon clicking F
         ShowPrompt(false);
+    }
+
+    private void TriggerWinSequence()
+    {
+        winTriggered = true;
+
+        if (interactButtonObject != null) interactButtonObject.SetActive(false);
+        if (dialogueUI != null) dialogueUI.SetActive(false);
+        if (winCanvas != null) winCanvas.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (playerInputs != null)
+        {
+            playerInputs.move = Vector2.zero;
+            playerInputs.look = Vector2.zero;
+            playerInputs.cursorLocked = false;
+            playerInputs.cursorInputForLook = false;
+
+            if (playerInputs.TryGetComponent<CharacterController>(out CharacterController cc))
+            {
+                cc.enabled = false;
+            }
+
+            if (movementScript != null)
+            {
+                movementScript.enabled = false;
+            }
+        }
     }
 
     private IEnumerator DelayedStateUpdate()
     {
-        isBusy = true; // Stop Update() from checking facing/prompts temporarily
-
-        // If this was the first time talking...
+        isBusy = true;
         if (!ReceiptInteract.isReceiptSolved && !hasShownIntro)
         {
-            // Wait 1 second (allows dialogue UI to fully cover the screen/appear)
-            yield return new WaitForSeconds(1.0f); 
-            
-            // Update flags so next interaction triggers a Hint
+            yield return new WaitForSeconds(1.0f);
             hasShownIntro = true;
             hasFinishedFirstTalk = true;
         }
-
-        isBusy = false; // Resume normal Update() checks
+        isBusy = false;
     }
 
     private bool IsPlayerFacing()
     {
         if (playerCamera == null) return false;
-
-        // MATH: Compare the camera's forward vector with the direction toward the NPC
         Vector3 dirToNPC = (transform.position - playerCamera.position).normalized;
         float dot = Vector3.Dot(playerCamera.forward, dirToNPC);
-
-        // If the 'dot' product is high (close to 1), the player is looking at the NPC
         return dot > facingThreshold;
     }
 
     public override void ShowPrompt(bool show)
     {
-        if (interactButtonObject == null) return;
+        if (interactButtonObject == null || winTriggered) return;
 
-        // Triple-check: we should never show the prompt if we are already talking
-        bool canShow = show && !isBusy && (conversationManager != null && !conversationManager.IsTalking());
-
-        if (canShow)
+        if (show)
         {
-            UpdateLabel(); // Change text to "Listen", "Hint", or "Talk"
+            // If someone else is showing a prompt, don't overlap
+            if (currentActivePromptOwner != null && currentActivePromptOwner != gameObject) return;
+
+            UpdateLabel();
             interactButtonObject.SetActive(true);
+            currentActivePromptOwner = gameObject;
         }
         else
         {
-            interactButtonObject.SetActive(false);
+            // Only hide if we are the owner
+            if (currentActivePromptOwner == gameObject)
+            {
+                interactButtonObject.SetActive(false);
+                currentActivePromptOwner = null;
+            }
         }
     }
 
     private void UpdateLabel()
     {
         if (interactButtonText == null) return;
-
-        // Context-aware button labels:
-        if (ReceiptInteract.isReceiptSolved)
-        {
-            interactButtonText.text = "[F] Talk"; // Post-puzzle
-        }
-        else if (hasShownIntro)
-        {
-            interactButtonText.text = "[F] Hint"; // Middle of puzzle
-        }
-        else
-        {
-            interactButtonText.text = "[F] Listen"; // First meet
-        }
+        if (ReceiptInteract.isReceiptSolved) interactButtonText.text = "[F] Finish";
+        else if (hasShownIntro) interactButtonText.text = "[F] Hint";
+        else interactButtonText.text = "[F] Listen";
     }
 
     public override void ForceEnd()
     {
-        // Emergency cleanup if the interaction is interrupted
         if (conversationManager != null) conversationManager.ForceEnd();
         isBusy = false;
         ShowPrompt(false);

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[F] Listen'
+  m_text: '[F] Interact'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ad5e7d8f8f349c4eb9d2a37a9537e4b, type: 2}
   m_sharedMaterial: {fileID: -2009771516001885252, guid: 5ad5e7d8f8f349c4eb9d2a37a9537e4b, type: 2}
@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5304343772904823709
 RectTransform:
   m_ObjectHideFlags: 0
