@@ -37,12 +37,29 @@ public class ScienceQuiz : MonoBehaviour
     public void OpenQuiz()
     {
         scienceQuestionPanel.SetActive(true);
-        blurBackground.SetActive(true); // Palabasin ang dimming/blur background
+        blurBackground.SetActive(true);
         isQuizFinished = false;
 
-        // Palabasin ang mouse cursor para makapindot ng buttons
+        // Tawagin natin ang Coroutine para sigurado ang paglabas ng mouse
+        StartCoroutine(EnableMouseAutomatic());
+    }
+
+    private IEnumerator EnableMouseAutomatic()
+    {
+        // Maghintay ng isang frame para matapos yung "F" keypress event
+        yield return null;
+
+        // Force the cursor to show up and stay unlocked
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        // I-unselect ang kahit anong dating naka-highlight para fresh ang click
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        Debug.Log("Mouse should be visible now!");
     }
 
     private IEnumerator CorrectRoutine(GameObject btn)
@@ -90,5 +107,19 @@ public class ScienceQuiz : MonoBehaviour
         btnImage.color = Color.white; // Babalik sa puti yung button
 
         isQuizFinished = false; // Pwede ulit sumagot
+    }
+
+    void Update()
+    {
+        // Hangga't active ang panel at hindi pa tapos ang quiz, 
+        // laging pilitin na lumabas ang mouse
+        if (scienceQuestionPanel.activeSelf && !isQuizFinished)
+        {
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 }
