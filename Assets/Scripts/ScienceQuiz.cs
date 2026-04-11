@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using StarterAssets; // Namespace para sa player scripts
 
 public class ScienceQuiz : MonoBehaviour
 {
@@ -17,9 +18,13 @@ public class ScienceQuiz : MonoBehaviour
     public int wrongAttempts = 0;
     public GameObject cluePromptPanel;
 
-    // Inayos ang duplicate variables
     public UnityEvent triggerBenDialogue;
-    public UnityEvent resetBenDialogue; // <-- IDAGDAG ITO PARA SA CORRECT ANSWER
+    public UnityEvent resetBenDialogue;
+
+    [Header("Player Reference")]
+    public FirstPersonController firstPersonController;
+    // <-- DAGDAG NATIN ITO PARA MAPIGILAN YUNG MOUSE INPUTS
+    public StarterAssetsInputs playerInputs;
 
     public bool isQuizFinished = false;
 
@@ -32,6 +37,13 @@ public class ScienceQuiz : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
+
+            // THE FIX: Pilitin nating i-zero ang camera movement habang nagsasagot
+            if (playerInputs != null)
+            {
+                playerInputs.look = Vector2.zero;
+                playerInputs.cursorInputForLook = false; // Sabihan si StarterAssets na wag munang pansinin ang mouse
+            }
         }
     }
 
@@ -40,7 +52,9 @@ public class ScienceQuiz : MonoBehaviour
         scienceQuestionPanel.SetActive(true);
         blurBackground.SetActive(true);
         isQuizFinished = false;
-        wrongAttempts = 0; // Fresh start kapag unang bukas ng beaker
+        wrongAttempts = 0;
+
+        if (firstPersonController != null) firstPersonController.enabled = false;
 
         StartCoroutine(EnableMouseAutomatic());
     }
@@ -56,7 +70,7 @@ public class ScienceQuiz : MonoBehaviour
     public void ChooseCorrectAnswer()
     {
         if (isQuizFinished) return;
-        isQuizFinished = true; // I-lock agad para hindi madoble ng spam click!
+        isQuizFinished = true;
 
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         StartCoroutine(CorrectRoutine(clickedButton));
@@ -65,7 +79,7 @@ public class ScienceQuiz : MonoBehaviour
     public void ChooseWrongAnswer()
     {
         if (isQuizFinished) return;
-        isQuizFinished = true; // I-lock agad para hindi madoble ng spam click!
+        isQuizFinished = true;
 
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         StartCoroutine(WrongRoutine(clickedButton));
@@ -76,7 +90,6 @@ public class ScienceQuiz : MonoBehaviour
         btn.GetComponent<Image>().color = Color.green;
         questionText.text = "Correct! The ice melted. I should check the unlocked cabinet...";
 
-        // SABIHAN SI BEN NA TAMA NA ANG SAGOT, BUMALIK NA SIYA SA NORMAL
         resetBenDialogue.Invoke();
 
         yield return new WaitForSeconds(2.5f);
@@ -86,6 +99,11 @@ public class ScienceQuiz : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        if (firstPersonController != null) firstPersonController.enabled = true;
+
+        // I-BALIK ANG MOUSE CONTROL SA PLAYER
+        if (playerInputs != null) playerInputs.cursorInputForLook = true;
+
         if (cabinetDoor != null) cabinetDoor.SetActive(false);
     }
 
@@ -94,7 +112,6 @@ public class ScienceQuiz : MonoBehaviour
         Image btnImage = btn.GetComponent<Image>();
         btnImage.color = Color.red;
 
-        // Shake effect
         Vector3 origPos = scienceQuestionPanel.transform.localPosition;
         float elapsed = 0f;
         while (elapsed < 0.2f)
@@ -110,7 +127,6 @@ public class ScienceQuiz : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         btnImage.color = Color.white;
 
-        // LOGIC PARA SA MALI AT FALLBACK
         wrongAttempts++;
 
         if (wrongAttempts >= 2)
@@ -120,49 +136,59 @@ public class ScienceQuiz : MonoBehaviour
         }
         else
         {
-            isQuizFinished = false; // Payagan ulit sumagot dahil 1st attempt palang
+            isQuizFinished = false;
         }
     }
 
     // TATAWAGIN NG "YES" BUTTON
     public void AcceptClue()
     {
-        // FIX: Buhayin muna ang panel bago tawagin ang Coroutine para hindi mag-error!
-        scienceQuestionPanel.SetActive(true);
+        // 1. Isara AGAD ang lahat ng UI panels
+        cluePromptPanel.SetActive(false);
+        scienceQuestionPanel.SetActive(false);
+        blurBackground.SetActive(false);
 
-        // Saka natin patakbuhin ang routine
-        StartCoroutine(GoToBenRoutine());
+        // 2. Ibalik ang control sa player (Camera at Mouse) agad-agad
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (firstPersonController != null) firstPersonController.enabled = true;
+        if (playerInputs != null) playerInputs.cursorInputForLook = true;
+
+        // 3. Sabihan si Ben na i-ready ang clue dialogue niya
+        triggerBenDialogue.Invoke();
+
+        // 4. I-reset ang quiz status para ready ulit pagbalik
+        wrongAttempts = 0;
+        isQuizFinished = false;
     }
-
     private IEnumerator GoToBenRoutine()
     {
         cluePromptPanel.SetActive(false);
-
-        // Palitan ang text para alam ng player ang gagawin
         questionText.text = "Maybe I should go talk to Ben and ask for a clue...";
 
-        // Sabihan si Ben na i-ready ang clue dialogue niya
         triggerBenDialogue.Invoke();
 
         yield return new WaitForSeconds(2.5f);
 
-        // Isara na ang panel at ibalik ang control sa player
         scienceQuestionPanel.SetActive(false);
         blurBackground.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        if (firstPersonController != null) firstPersonController.enabled = true;
+
+        // I-BALIK ANG MOUSE CONTROL SA PLAYER
+        if (playerInputs != null) playerInputs.cursorInputForLook = true;
+
         wrongAttempts = 0;
         isQuizFinished = false;
     }
 
-    // TATAWAGIN NG "NO" BUTTON
     public void DeclineClue()
     {
         cluePromptPanel.SetActive(false);
-        scienceQuestionPanel.SetActive(true); // Ibalik ang quiz
-
-        // GAWING 1 ANG MALI! Para sa susunod na magkamali siya (1+1=2), lilitaw ulit itong panel.
+        scienceQuestionPanel.SetActive(true);
         wrongAttempts = 1;
         isQuizFinished = false;
     }
