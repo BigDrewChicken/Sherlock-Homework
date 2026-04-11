@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
@@ -20,6 +20,9 @@ public class ScienceQuiz : MonoBehaviour
 
     public UnityEvent triggerBenDialogue;
     public UnityEvent resetBenDialogue;
+
+    [Header("Level Sequence")]
+    public LevelCompletionSequence levelSequence;
 
     [Header("Player Reference")]
     public FirstPersonController firstPersonController;
@@ -92,16 +95,22 @@ public class ScienceQuiz : MonoBehaviour
 
         resetBenDialogue.Invoke();
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
+
+        // ✅ TRIGGER LEVEL SEQUENCE HERE
+        if (levelSequence != null)
+        {
+            levelSequence.StartSequence();
+        }
 
         scienceQuestionPanel.SetActive(false);
         blurBackground.SetActive(false);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         if (firstPersonController != null) firstPersonController.enabled = true;
 
-        // I-BALIK ANG MOUSE CONTROL SA PLAYER
         if (playerInputs != null) playerInputs.cursorInputForLook = true;
 
         if (cabinetDoor != null) cabinetDoor.SetActive(false);
