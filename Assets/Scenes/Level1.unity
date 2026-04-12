@@ -15124,7 +15124,7 @@ MonoBehaviour:
   - speakerName: Detective
     text: Let's see if I can help with their troubles. [WASD to move.]
     voiceLine: {fileID: 0}
-  delayBeforeStart: 1.5
+  delayBeforeStart: 0.5
 --- !u!1001 &1977313441
 PrefabInstance:
   m_ObjectHideFlags: 0
