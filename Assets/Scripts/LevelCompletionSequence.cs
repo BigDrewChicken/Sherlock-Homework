@@ -10,7 +10,7 @@ public class LevelCompletionSequence : MonoBehaviour
     public GameObject cameraProfessor;
 
     [Header("Player")]
-    public GameObject player; // drag your Player here
+    public GameObject player;
 
     [Header("UI - Teacher Dialogue")]
     public GameObject dialoguePanel;
@@ -25,7 +25,7 @@ public class LevelCompletionSequence : MonoBehaviour
 
     [Header("Typewriter Settings")]
     public float typeSpeed = 0.1f;
-    public float fastTypeSpeed = 0.01f; // ✅ ADDED (speed when holding F)
+    public float fastTypeSpeed = 0.01f;
 
     [Header("Experiment Dialogue")]
     [TextArea(3, 10)]
@@ -58,8 +58,6 @@ public class LevelCompletionSequence : MonoBehaviour
 
     void Update()
     {
-        // ❌ REMOVED NEED FOR FIRST F (no change here, just won't be used anymore)
-
         if (state == SequenceState.ExperimentDialogue && Input.GetKeyDown(KeyCode.F))
         {
             if (!isTyping && canPressF)
@@ -91,24 +89,20 @@ public class LevelCompletionSequence : MonoBehaviour
 
         dialoguePanel.SetActive(false);
         experimentDialoguePanel.SetActive(false);
-        levelCompletePanel.SetActive(false);
 
-        Debug.Log("Level sequence started");
+        if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
 
         StartCoroutine(GoToFirstStep());
 
-        player.SetActive(false); // ✅ disable player
+        player.SetActive(false); // Naka-freeze na ang player dito
     }
 
     private IEnumerator GoToFirstStep()
     {
         yield return null;
-
-        // ✅ AUTO START EXPERIMENT DIALOGUE (no F needed)
         StartExperimentDialogue();
     }
 
-    // EXPERIMENT DIALOGUE (NEW UI)
     private void StartExperimentDialogue()
     {
         state = SequenceState.ExperimentDialogue;
@@ -120,8 +114,6 @@ public class LevelCompletionSequence : MonoBehaviour
         experimentDialogueText.text = "";
 
         StartCoroutine(TypeExperimentDialogue());
-
-        Debug.Log("Experiment dialogue shown");
     }
 
     private IEnumerator TypeExperimentDialogue()
@@ -134,8 +126,6 @@ public class LevelCompletionSequence : MonoBehaviour
         foreach (char c in experimentDialogue)
         {
             experimentDialogueText.text += c;
-
-            // ✅ HOLD F TO SPEED UP
             float currentSpeed = Input.GetKey(KeyCode.F) ? fastTypeSpeed : typeSpeed;
             yield return new WaitForSeconds(currentSpeed);
         }
@@ -144,7 +134,6 @@ public class LevelCompletionSequence : MonoBehaviour
         canPressF = true;
     }
 
-    // TEACHER DIALOGUE (UNCHANGED UI)
     private void StartProfessorDialogue()
     {
         state = SequenceState.ProfessorDialogue;
@@ -159,8 +148,6 @@ public class LevelCompletionSequence : MonoBehaviour
         dialogueStep = 0;
 
         StartCoroutine(ShowDialogueStep());
-
-        Debug.Log("Professor dialogue started");
     }
 
     private void NextDialogue()
@@ -170,7 +157,6 @@ public class LevelCompletionSequence : MonoBehaviour
         if (dialogueStep >= 2)
         {
             state = SequenceState.WaitSecondF;
-            Debug.Log("Press F again to finish level");
             return;
         }
 
@@ -194,8 +180,6 @@ public class LevelCompletionSequence : MonoBehaviour
         foreach (char c in textToShow)
         {
             dialogueText.text += c;
-
-            // ✅ SAME SPEED-UP FOR TEACHER DIALOGUE
             float currentSpeed = Input.GetKey(KeyCode.F) ? fastTypeSpeed : typeSpeed;
             yield return new WaitForSeconds(currentSpeed);
         }
@@ -210,8 +194,14 @@ public class LevelCompletionSequence : MonoBehaviour
 
         dialoguePanel.SetActive(false);
         experimentDialoguePanel.SetActive(false);
-        levelCompletePanel.SetActive(true);
 
-        Debug.Log("Level Completed!");
+        // ✅ 1. ILABAS ANG "YOU WON" CANVAS
+        if (levelCompletePanel != null) levelCompletePanel.SetActive(true);
+
+        // ✅ 2. ILABAS ANG MOUSE POINTER (Utos ng Leader mo)
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        Debug.Log("Level Completed and Mouse Unlocked!");
     }
 }

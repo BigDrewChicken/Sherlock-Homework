@@ -4,7 +4,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using StarterAssets; // Namespace para sa player scripts
+using StarterAssets;
 
 public class ScienceQuiz : MonoBehaviour
 {
@@ -26,14 +26,17 @@ public class ScienceQuiz : MonoBehaviour
 
     [Header("Player Reference")]
     public FirstPersonController firstPersonController;
-    // <-- DAGDAG NATIN ITO PARA MAPIGILAN YUNG MOUSE INPUTS
     public StarterAssetsInputs playerInputs;
+
+    [Header("Player & Interaction Fix")]
+    public GameObject interactPromptUI;
+    public Collider beakerCollider;
 
     public bool isQuizFinished = false;
 
     void Update()
     {
-        if ((scienceQuestionPanel.activeSelf || cluePromptPanel.activeSelf) && !isQuizFinished)
+        if (scienceQuestionPanel.activeSelf || cluePromptPanel.activeSelf)
         {
             if (Cursor.lockState != CursorLockMode.None)
             {
@@ -41,11 +44,29 @@ public class ScienceQuiz : MonoBehaviour
                 Cursor.visible = true;
             }
 
-            // THE FIX: Pilitin nating i-zero ang camera movement habang nagsasagot
             if (playerInputs != null)
             {
                 playerInputs.look = Vector2.zero;
-                playerInputs.cursorInputForLook = false; // Sabihan si StarterAssets na wag munang pansinin ang mouse
+                playerInputs.cursorInputForLook = false;
+            }
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (scienceQuestionPanel.activeSelf || cluePromptPanel.activeSelf)
+        {
+            if (interactPromptUI != null)
+            {
+                interactPromptUI.SetActive(false);
+                interactPromptUI.transform.localScale = Vector3.zero;
+            }
+        }
+        else
+        {
+            if (interactPromptUI != null)
+            {
+                interactPromptUI.transform.localScale = Vector3.one;
             }
         }
     }
@@ -58,6 +79,8 @@ public class ScienceQuiz : MonoBehaviour
         wrongAttempts = 0;
 
         if (firstPersonController != null) firstPersonController.enabled = false;
+        if (beakerCollider != null) beakerCollider.enabled = false;
+        if (interactPromptUI != null) interactPromptUI.SetActive(false);
 
         StartCoroutine(EnableMouseAutomatic());
     }
@@ -75,8 +98,53 @@ public class ScienceQuiz : MonoBehaviour
         if (isQuizFinished) return;
         isQuizFinished = true;
 
-        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
+        GameObject clickedButton = null;
+        if (EventSystem.current != null)
+        {
+            clickedButton = EventSystem.current.currentSelectedGameObject;
+        }
         StartCoroutine(CorrectRoutine(clickedButton));
+    }
+
+    private IEnumerator CorrectRoutine(GameObject btn)
+    {
+        if (btn != null)
+        {
+            Image btnImage = btn.GetComponent<Image>();
+            if (btnImage != null) btnImage.color = Color.green;
+        }
+
+        questionText.text = "Correct! The ice melted. I should check the unlocked cabinet...";
+
+        resetBenDialogue.Invoke();
+
+        yield return new WaitForSeconds(1.5f);
+
+        scienceQuestionPanel.SetActive(false);
+        blurBackground.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (cabinetDoor != null) cabinetDoor.SetActive(false);
+
+        // ✅ FIX 1: PERMANENTLY i-disable ang Beaker para hindi na ito sumabat sa 'F' key ng cutscene
+        if (beakerCollider != null)
+        {
+            beakerCollider.enabled = false;
+            beakerCollider.gameObject.tag = "Untagged";
+        }
+
+        // ✅ FIX 2: Kung may cutscene na susunod, WAG munang ibalik ang control sa player!
+        if (levelSequence != null)
+        {
+            levelSequence.StartSequence();
+        }
+        else
+        {
+            // Ibabalik lang ang player movement kung walang cutscene na naka-assign
+            if (firstPersonController != null) firstPersonController.enabled = true;
+            if (playerInputs != null) playerInputs.cursorInputForLook = true;
+        }
     }
 
     public void ChooseWrongAnswer()
@@ -88,38 +156,10 @@ public class ScienceQuiz : MonoBehaviour
         StartCoroutine(WrongRoutine(clickedButton));
     }
 
-    private IEnumerator CorrectRoutine(GameObject btn)
-    {
-        btn.GetComponent<Image>().color = Color.green;
-        questionText.text = "Correct! The ice melted. I should check the unlocked cabinet...";
-
-        resetBenDialogue.Invoke();
-
-        yield return new WaitForSeconds(1.5f);
-
-        // ✅ TRIGGER LEVEL SEQUENCE HERE
-        if (levelSequence != null)
-        {
-            levelSequence.StartSequence();
-        }
-
-        scienceQuestionPanel.SetActive(false);
-        blurBackground.SetActive(false);
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-        if (firstPersonController != null) firstPersonController.enabled = true;
-
-        if (playerInputs != null) playerInputs.cursorInputForLook = true;
-
-        if (cabinetDoor != null) cabinetDoor.SetActive(false);
-    }
-
     private IEnumerator WrongRoutine(GameObject btn)
     {
         Image btnImage = btn.GetComponent<Image>();
-        btnImage.color = Color.red;
+        if (btnImage != null) btnImage.color = Color.red;
 
         Vector3 origPos = scienceQuestionPanel.transform.localPosition;
         float elapsed = 0f;
@@ -134,7 +174,7 @@ public class ScienceQuiz : MonoBehaviour
         scienceQuestionPanel.transform.localPosition = origPos;
 
         yield return new WaitForSeconds(0.5f);
-        btnImage.color = Color.white;
+        if (btnImage != null) btnImage.color = Color.white;
 
         wrongAttempts++;
 
@@ -149,46 +189,21 @@ public class ScienceQuiz : MonoBehaviour
         }
     }
 
-    // TATAWAGIN NG "YES" BUTTON
     public void AcceptClue()
     {
-        // 1. Isara AGAD ang lahat ng UI panels
         cluePromptPanel.SetActive(false);
         scienceQuestionPanel.SetActive(false);
         blurBackground.SetActive(false);
 
-        // 2. Ibalik ang control sa player (Camera at Mouse) agad-agad
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         if (firstPersonController != null) firstPersonController.enabled = true;
         if (playerInputs != null) playerInputs.cursorInputForLook = true;
 
-        // 3. Sabihan si Ben na i-ready ang clue dialogue niya
-        triggerBenDialogue.Invoke();
-
-        // 4. I-reset ang quiz status para ready ulit pagbalik
-        wrongAttempts = 0;
-        isQuizFinished = false;
-    }
-    private IEnumerator GoToBenRoutine()
-    {
-        cluePromptPanel.SetActive(false);
-        questionText.text = "Maybe I should go talk to Ben and ask for a clue...";
+        if (beakerCollider != null) beakerCollider.enabled = true;
 
         triggerBenDialogue.Invoke();
-
-        yield return new WaitForSeconds(2.5f);
-
-        scienceQuestionPanel.SetActive(false);
-        blurBackground.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-        if (firstPersonController != null) firstPersonController.enabled = true;
-
-        // I-BALIK ANG MOUSE CONTROL SA PLAYER
-        if (playerInputs != null) playerInputs.cursorInputForLook = true;
 
         wrongAttempts = 0;
         isQuizFinished = false;
