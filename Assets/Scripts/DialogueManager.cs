@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections; // IDINAGDAG: Kailangan ito para sa Coroutines (IEnumerator)
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,40 +14,74 @@ public class DialogueManager : MonoBehaviour
     [Header("Player Control")]
     public MonoBehaviour cameraLookScript;
 
+    [Header("Typing Settings")]
+    public float typingSpeed = 0.04f; // IDINAGDAG: Bilis ng pag-type ng text
+
     private string[] currentLines;
     private int currentLineIndex = 0;
-    private NPC currentNPC; // Bagong memorya para matandaan kung sino ang kausap
+    private NPC currentNPC;
+
+    private Coroutine typingCoroutine; // IDINAGDAG: Para matigil ang typing kung pipindot agad
+    private bool isTyping = false;     // IDINAGDAG: Para malaman kung nagta-type pa
 
     void Awake() { instance = this; }
 
     void Start() { dialogPanel.SetActive(false); }
 
-    // --- NAGBAGO DITO: Idinagdag natin ang "NPC npc" ---
     public void StartDialogue(string npcName, string[] lines, NPC npc)
     {
-        currentNPC = npc; // Tandaan kung sino ang kausap natin
+        currentNPC = npc;
         currentLines = lines;
         currentLineIndex = 0;
 
         nameText.text = npcName;
-        dialogueText.text = currentLines[currentLineIndex];
 
         dialogPanel.SetActive(true);
 
         if (cameraLookScript != null) { cameraLookScript.enabled = false; }
+
+        // NAGBAGO: Imbes na ilabas agad ang text, sisimulan ang typing animation
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        typingCoroutine = StartCoroutine(TypeLine(currentLines[currentLineIndex]));
     }
 
     public void NextLine()
     {
-        currentLineIndex++;
-        if (currentLineIndex < currentLines.Length)
+        // BAGONG LOGIC: Kung nagta-type pa tapos pinindot ang 'F', ilabas agad ang buong text (Fast-forward)
+        if (isTyping)
         {
+            if (typingCoroutine != null) StopCoroutine(typingCoroutine);
             dialogueText.text = currentLines[currentLineIndex];
+            isTyping = false;
         }
-        else
+        else // Kung tapos nang mag-type, tsaka lang lilipat sa next line
         {
-            EndDialogue();
+            currentLineIndex++;
+            if (currentLineIndex < currentLines.Length)
+            {
+                if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+                typingCoroutine = StartCoroutine(TypeLine(currentLines[currentLineIndex]));
+            }
+            else
+            {
+                EndDialogue();
+            }
         }
+    }
+
+    // BAGONG COROUTINE: Ang tagagawa ng typing effect
+    private IEnumerator TypeLine(string line)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        foreach (char c in line.ToCharArray())
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        isTyping = false;
     }
 
     void EndDialogue()
@@ -55,8 +90,6 @@ public class DialogueManager : MonoBehaviour
 
         if (cameraLookScript != null) { cameraLookScript.enabled = true; }
 
-        // --- NAGBAGO DITO ---
-        // Kapag tapos na ang dialogue, i-trigger natin yung "On Dialogue End" ng NPC na iyon!
         if (currentNPC != null && currentNPC.onDialogueEnd != null)
         {
             currentNPC.onDialogueEnd.Invoke();

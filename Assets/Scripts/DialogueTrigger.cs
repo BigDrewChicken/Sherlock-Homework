@@ -8,26 +8,31 @@ public class DialogueTrigger : MonoBehaviour
     [Header("UI References")]
     public GameObject interactHintUI;
 
+    // BAGONG HARANG: Ilalagay natin dito ang Quiz Panel
+    public GameObject scienceQuestionPanel;
+
     void Update()
     {
-        // SCENARIO 1: MAY KAUSAP NA (Naka-open ang dialogue box)
-        if (DialogueManager.instance.dialogPanel.activeSelf)
+        // HARANG LOGIC: Kung nakabukas ang Science Quiz, bawal mag-scan o pumindot ng F para sa dialogue!
+        if (scienceQuestionPanel != null && scienceQuestionPanel.activeSelf)
         {
-            // Itago ang Hint UI para malinis ang screen
+            if (interactHintUI != null) interactHintUI.SetActive(false);
+            return; // Pinapatay natin ang script panandalian habang nagku-quiz para iwas-patong
+        }
+
+        // SCENARIO 1: MAY KAUSAP NA (Naka-open ang dialogue box)
+        if (DialogueManager.instance != null && DialogueManager.instance.dialogPanel.activeSelf)
+        {
             if (interactHintUI != null) interactHintUI.SetActive(false);
 
-            // Kapag pinindot ang 'F', magne-next line agad kahit saan pa nakatingin!
             if (Input.GetKeyDown(interactKey))
             {
                 DialogueManager.instance.NextLine();
             }
-
-            // Huminto na dito ang code. Huwag nang mag-shoot ng laser.
             return;
         }
 
-        // SCENARIO 2: NORMAL GAMEPLAY (Naglalaman ng paghahanap ng NPC)
-        // Default: Itago muna ang hint UI
+        // SCENARIO 2: NORMAL GAMEPLAY
         if (interactHintUI != null) interactHintUI.SetActive(false);
 
         Ray ray = new Ray(transform.position, transform.forward);
@@ -37,10 +42,8 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (hit.collider.CompareTag("NPC"))
             {
-                // Kung NPC ang tinamaan, ilabas ang "[F] Interact"
                 if (interactHintUI != null) interactHintUI.SetActive(true);
 
-                // Kung pinindot ang 'F', simulan ang usapan
                 if (Input.GetKeyDown(interactKey))
                 {
                     NPC targetNPC = hit.collider.GetComponent<NPC>();

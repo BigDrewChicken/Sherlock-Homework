@@ -4,14 +4,13 @@ public class InteractableBeaker : MonoBehaviour
 {
     [Header("UI Elements")]
     public GameObject scienceQuestionPanel; // Drag your ScienceQuestionPanel here
-    public GameObject interactPrompt;       // Optional: A "Press F to Investigate" text
+    public GameObject interactPrompt;       // Optional: A "Press F to Investigate" text
 
-    private bool isPlayerNearby = false;
+    private bool isPlayerNearby = false;
 
     void Start()
     {
-       
-        if (scienceQuestionPanel != null)
+        if (scienceQuestionPanel != null)
             scienceQuestionPanel.SetActive(false);
 
         if (interactPrompt != null)
@@ -20,18 +19,19 @@ public class InteractableBeaker : MonoBehaviour
 
     void Update()
     {
-        
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
+        // FIX: Idinagdag natin ang check na '!scienceQuestionPanel.activeSelf'
+        // Ibig sabihin: Bubuksan lang niya ang quiz KUNG HINDI PA ITO NAKABUKAS.
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
         {
-            scienceQuestionPanel.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (scienceQuestionPanel != null && !scienceQuestionPanel.activeSelf)
+            {
+                scienceQuestionPanel.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
 
-
-            if (interactPrompt != null)
-                interactPrompt.SetActive(false);
-
-        
+                if (interactPrompt != null)
+                    interactPrompt.SetActive(false);
+            }
         }
     }
 
@@ -40,9 +40,12 @@ public class InteractableBeaker : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            if (interactPrompt != null)
+            // Ipapakita lang ang prompt kung HINDI nakabukas ang quiz
+            if (interactPrompt != null && (scienceQuestionPanel == null || !scienceQuestionPanel.activeSelf))
+            {
                 interactPrompt.SetActive(true); // Show "Press F"
-        }
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)

@@ -5081,6 +5081,7 @@ MonoBehaviour:
   interactDistance: 3
   interactKey: 102
   interactHintUI: {fileID: 87092724}
+  scienceQuestionPanel: {fileID: 1142899333}
 --- !u!114 &214567888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9434,7 +9435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Detective
+  m_text: 'Professor:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c00b478b3115b994eb482a5eed880c8f, type: 2}
   m_sharedMaterial: {fileID: -6481960138795195980, guid: c00b478b3115b994eb482a5eed880c8f,
@@ -23577,6 +23578,8 @@ MonoBehaviour:
   levelSequence: {fileID: 1657560376}
   firstPersonController: {fileID: 489722341}
   playerInputs: {fileID: 489722348}
+  interactPromptUI: {fileID: 87092724}
+  beakerCollider: {fileID: 1245546266}
   isQuizFinished: 0
 --- !u!114 &1142899335
 MonoBehaviour:
@@ -26313,6 +26316,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.65413654, y: 0.21095109, z: 0.5976051}
   m_Center: {x: -0.27225405, y: 0.104776375, z: -0.03397057}
+--- !u!64 &1245546266 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: -8653390839215561847, guid: 24c728c68968f6447b856666f27564a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1245546260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1251213031
 PrefabInstance:
   m_ObjectHideFlags: 0
