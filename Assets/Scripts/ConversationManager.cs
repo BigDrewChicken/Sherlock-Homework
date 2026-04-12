@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 using StarterAssets;
+using Cinemachine;
 
 [System.Serializable]
 public class DialogueLine
@@ -29,13 +30,11 @@ public class ConversationManager : MonoBehaviour
 
     [Header("Clue System")]
     public bool isGivingClue = false;
-    // Pinalitan ng DialogueLine[] para magamit mo yung Speaker Name at Typing effect!
     public DialogueLine[] clueDialogueLines;
 
-    // Slot para ilagay mo ang Player object mo (yung may FirstPersonController script)
+    // ❌ We KEEP this but no longer use it to freeze camera
     public FirstPersonController firstPersonController;
 
-    // Slot para ilagay mo si Ben (para alam kung saan titingin)
     public Transform benTransform;
 
     public float inputCooldown = 0.5f;
@@ -45,6 +44,11 @@ public class ConversationManager : MonoBehaviour
 
     [Header("External Script Reference")]
     public ReceiptBehavior receiptBehavior;
+
+    // ⭐ CINEMACHINE ADDED
+    [Header("Cinemachine Cameras")]
+    public CinemachineVirtualCamera cmMain;
+    public CinemachineVirtualCamera cmBen;
 
     private DialogueLine[] activeConversation;
     private bool isTalking = false;
@@ -62,7 +66,6 @@ public class ConversationManager : MonoBehaviour
 
     void Update()
     {
-        // Kung nag-uusap, siguraduhing zero lahat ng inputs para walang maling galaw
         if (isTalking && playerInputs != null)
         {
             playerInputs.move = Vector2.zero;
@@ -76,15 +79,10 @@ public class ConversationManager : MonoBehaviour
 
         if (!isTalking)
         {
-            // BAGONG LOGIC: I-check kung nagbigay ba tayo ng YES sa Clue prompt
             if (isGivingClue)
-            {
                 activeConversation = clueDialogueLines;
-            }
             else
-            {
                 activeConversation = ReceiptInteract.isReceiptSolved ? solvedConversation : initialConversation;
-            }
 
             StartCoroutine(AnimateButtonAndStart());
         }
@@ -111,19 +109,12 @@ public class ConversationManager : MonoBehaviour
     {
         isTalking = true;
         index = 0;
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(true);
 
-        // I-disable natin ang pag-ikot ng camera ng FirstPersonController
-        if (firstPersonController != null)
-        {
-            firstPersonController.enabled = false;
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(true);
 
-            // Automatic na lumingon kay Ben
-            if (benTransform != null)
-            {
-                firstPersonController.transform.LookAt(new Vector3(benTransform.position.x, firstPersonController.transform.position.y, benTransform.position.z));
-            }
-        }
+        // ⭐ SWITCH CAMERA TO BEN
+        SwitchCamera(cmBen, cmMain);
 
         UpdateStep();
     }
@@ -132,7 +123,8 @@ public class ConversationManager : MonoBehaviour
     {
         if (activeConversation != null && index < activeConversation.Length)
         {
-            if (nameText != null) nameText.text = activeConversation[index].speakerName;
+            if (nameText != null)
+                nameText.text = activeConversation[index].speakerName;
 
             string rawText = activeConversation[index].text;
             currentProcessedText = rawText;
@@ -144,7 +136,7 @@ public class ConversationManager : MonoBehaviour
 
                 currentProcessedText = currentProcessedText
                     .Replace("{total}", total.ToString("F0"))
-                    .Replace("{totalTax}", totalTax.ToString("F2"));
+                    .Replace("{totalTax}", total.ToString("F2"));
             }
 
             if (typingCoroutine != null) StopCoroutine(typingCoroutine);
@@ -187,22 +179,17 @@ public class ConversationManager : MonoBehaviour
     void End()
     {
         isTalking = false;
+
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         isCurrentlyTyping = false;
 
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(false);
+        if (dialogueCanvas != null)
+            dialogueCanvas.SetActive(false);
 
-        // I-enable ulit ang FirstPersonController pagkatapos ng usapan
-        if (firstPersonController != null)
-        {
-            firstPersonController.enabled = true;
-        }
-
-        // BINURA NATIN DITO YUNG "isGivingClue = false;" PARA HINDI NIYA MAKALIMUTAN!
+        // ⭐ RETURN CAMERA TO MAIN
+        SwitchCamera(cmMain, cmBen);
     }
 
-    // --- IDAGDAG ITO SA PINAKABABA NG SCRIPT (Bago mag-lock bracket "}") ---
-    // Tatawagin natin ito kapag nasagot na nang tama ang Quiz!
     public void DisableClueDialogue()
     {
         isGivingClue = false;
@@ -215,9 +202,15 @@ public class ConversationManager : MonoBehaviour
 
     public bool IsTalking() => isTalking;
 
-    // Ito ang tatawagin ng ScienceQuiz kapag pinindot ang YES
     public void EnableClueDialogue()
     {
         isGivingClue = true;
+    }
+
+    // ⭐ CINEMACHINE CAMERA SWITCH
+    private void SwitchCamera(CinemachineVirtualCamera activeCam, CinemachineVirtualCamera inactiveCam)
+    {
+        activeCam.Priority = 20;
+        inactiveCam.Priority = 10;
     }
 }
