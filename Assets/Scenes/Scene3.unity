@@ -35100,7 +35100,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1568109802}
   experimentDialoguePanel: {fileID: 1587536685}
   experimentDialogueText: {fileID: 1987090817}
-  levelCompletePanel: {fileID: 1419088388}
+  levelCompletePanel: {fileID: 1256865044}
   typeSpeed: 0.03
   fastTypeSpeed: 0.01
   experimentDialogue: "A temperature-controlled cabinet\u2026 why would the experiment
