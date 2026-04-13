@@ -1,15 +1,22 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Reflection;
+using System;
 
-public class MainMenu : MonoBehaviour
+public class ErrorFinder : MonoBehaviour
 {
-    public void QuitGame()
+    void Start()
     {
-        Application.Quit();
-        Debug.Log("QUIT BUTTON CLICKED");
-    }
-    public void OpenSettings()
-    {
-        Debug.Log("SETTINGS OPENED");
+        // This looks through the entire game's memory to find every script named "VD"
+        var types = AppDomain.CurrentDomain.GetAssemblies();
+        foreach (var assembly in types)
+        {
+            foreach (var type in assembly.GetTypes())
+            {
+                if (type.Name == "VD")
+                {
+                    Debug.Log("<color=red>FOUND VD AT: </color>" + type.Assembly.FullName);
+                }
+            }
+        }
     }
 }
