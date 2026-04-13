@@ -22,11 +22,14 @@ public class SceneLoader : MonoBehaviour
         sceneName = scene.name;
 #endif
     }
-
+    
     // Loads the assigned scene (used for level buttons)
     public void LoadScene()
     {
         SceneManager.LoadScene(sceneName);
     }
+
+
+    
 
 }

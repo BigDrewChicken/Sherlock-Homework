@@ -8,172 +8,200 @@ using UnityEditor;
 
 public class ReceiptInteract : Interactable
 {
-    public GameObject receiptCanvas;      
-    public GameObject hintCanvas;         
-    public GameObject interactButton;
-    public TextMeshProUGUI hintText; 
-    
-    [Header("References")]
+    [Header("Conversation References")]
+    public ConversationManager conversationManager;
+    public DialogueLine[] preNPCDialogue;
+    public DialogueLine[] postNPCDialogue;
+    public DialogueLine[] mathErrorSubtotal;
+    public DialogueLine[] mathErrorTax;
+    public DialogueLine[] solvedDialogue;
+
+    [Header("UI & Input")]
+    public GameObject receiptCanvas;
+    public GameObject interactButton; 
+    public TextMeshProUGUI interactButtonText; // Drag the Label here
+    public string customPromptText = "[F] Interact"; // Set this in Inspector
+
     public StarterAssetsInputs playerInputs;
     public MonoBehaviour playerController;
-    public GameObject narrativeDialogueCanvas; 
+    public Transform playerCamera;
 
-    [Header("Error Settings")]
-    public GameObject errorCanvas; 
-    public TextMeshProUGUI errorText; 
+    [Header("Facing Settings")]
+    [Range(0f, 1f)] public float facingThreshold = 0.8f;
 
-    public static bool isReceiptSolved = false; 
+    // GLOBAL STATE
+    public static bool isReceiptSolved = false;
+    
+    // STATIC TRACKING
+    private static GameObject currentActivePromptOwner;
 
+    // LOCAL STATES
     private bool isInteracting = false;
-    private bool isSolved = false;
-    private bool hasSeenNarrative = false;
-    private bool isShowingError = false; 
+    private bool hasSeenIntroDialogue = false;
+    private bool waitingForPuzzleOpen = false;
 
-    private void OnValidate()
-    {
-#if UNITY_EDITOR
-        // This schedules the deactivation to happen AFTER Unity is done validating
-        EditorApplication.delayCall += DisableCanvasesInEditor;
-#endif
-    }
-
-    private void DisableCanvasesInEditor()
-    {
-#if UNITY_EDITOR
-        // Unsubscribe immediately so it only runs once per change
-        EditorApplication.delayCall -= DisableCanvasesInEditor;
-
-        if (this == null || Application.isPlaying) return;
-
-        if (receiptCanvas != null) receiptCanvas.SetActive(false);
-        if (hintCanvas != null) hintCanvas.SetActive(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        if (errorCanvas != null) errorCanvas.SetActive(false);
-#endif
-    }
+    // ... (Keep OnValidate and DisableCanvasesInEditor from previous version)
 
     void Start()
     {
         isReceiptSolved = false;
-        ForceEnd(); // Clean state at start
+        if (playerCamera == null && Camera.main != null) playerCamera = Camera.main.transform;
+        ForceEnd(); 
     }
 
-    // ... (Keep the rest of your Update, OnInteract, etc., exactly as they were)
-    
     protected override void Update()
     {
-        if (isShowingError && Input.GetKeyDown(KeyCode.F))
-        {
-            CloseErrorHint();
-        }
-
         base.Update();
 
-        if (isInteracting && playerInputs != null)
+        bool isTalking = conversationManager != null && conversationManager.IsTalking();
+
+        if (waitingForPuzzleOpen && !isTalking)
+        {
+            waitingForPuzzleOpen = false;
+            OpenReceiptPuzzle();
+        }
+
+        // PROMPT LOGIC
+        if (playerDetected && !isInteracting && !isTalking && IsPlayerFacing())
+        {
+            ShowPrompt(true);
+        }
+        else
+        {
+            if (currentActivePromptOwner == gameObject)
+            {
+                ShowPrompt(false);
+            }
+        }
+
+        // Input freezing logic
+        if ((isInteracting || isTalking) && playerInputs != null)
         {
             playerInputs.move = Vector2.zero;
-            playerInputs.look = Vector2.zero;
+            if (isInteracting) playerInputs.look = Vector2.zero;
             playerInputs.jump = false;
             playerInputs.sprint = false;
         }
-    }
 
-    public override void OnInteract()
-    {
-        if (isSolved || isShowingError) return;
-        ShowPrompt(false);
-
-        if (!NPCInteract.hasFinishedFirstTalk)
+        if (isInteracting && isTalking && Input.GetKeyDown(KeyCode.F))
         {
-            ShowWorldHint("(Hmm, food and receipt unattended.. did something happen? Best I check around to see what happened.)");
-            return;
-        }
-
-        if (!hasSeenNarrative)
-        {
-            OpenNarrative();
-            return;
-        }
-
-        EnterReceiptPuzzle();
-    }
-
-    public void ShowMathError(string message)
-    {
-        if (errorCanvas != null)
-        {
-            isShowingError = true;
-            if (errorText != null) errorText.text = message;
-            errorCanvas.SetActive(true);
+            conversationManager.OnInteractPressed();
         }
     }
 
-    private void CloseErrorHint()
+    private void LateUpdate()
     {
-        isShowingError = false;
-        if (errorCanvas != null) errorCanvas.SetActive(false);
-    }
-
-    private void OpenNarrative()
-    {
-        isInteracting = true;
-        if (playerController != null) playerController.enabled = false;
-        if (playerInputs != null) playerInputs.SetCursorLocked(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(true);
-        hasSeenNarrative = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
-    public void EnterReceiptPuzzle()
-    {
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        isInteracting = true;
-        if (playerController != null) playerController.enabled = false;
-        if (playerInputs != null) playerInputs.SetCursorLocked(false);
-        if (receiptCanvas != null) receiptCanvas.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
-    public void ShowWorldHint(string message)
-    {
-        if (hintCanvas != null)
+        if (conversationManager != null && conversationManager.IsTalking())
         {
-            if (hintText != null) hintText.text = message;
-            hintCanvas.SetActive(true);
-            CancelInvoke("HideHint");
-            Invoke("HideHint", 3f);
+            if (currentActivePromptOwner == gameObject) ShowPrompt(false);
         }
     }
-
-    private void HideHint() { if (hintCanvas != null) hintCanvas.SetActive(false); }
 
     public override void ShowPrompt(bool show)
     {
-        if (isSolved || isShowingError) return;
-        if (interactButton != null) interactButton.SetActive(show);
+        if (interactButton == null) return;
+
+        if (show)
+        {
+            // Don't show if the NPC already has the "stick"
+            if (currentActivePromptOwner != null && currentActivePromptOwner != gameObject) return;
+
+            // FORCE the text to "[F] Interact"
+            if (interactButtonText != null) 
+            {
+                interactButtonText.text = customPromptText;
+            }
+
+            interactButton.SetActive(true);
+            currentActivePromptOwner = gameObject;
+        }
+        else
+        {
+            // Only hide if we were the ones showing it
+            if (currentActivePromptOwner == gameObject)
+            {
+                interactButton.SetActive(false);
+                currentActivePromptOwner = null;
+            }
+        }
+    }
+
+    // ... (Rest of the script: OnInteract, OpenReceiptPuzzle, TriggerMathError, IsPlayerFacing, ForceEnd, CloseInteraction)
+    // Ensure you keep the existing logic for those methods from your previous script
+    
+    public override void OnInteract()
+    {
+        if (conversationManager != null && conversationManager.IsTalking())
+        {
+            conversationManager.OnInteractPressed();
+            return;
+        }
+
+        if (isInteracting || !IsPlayerFacing()) return;
+
+        if (isReceiptSolved)
+        {
+            conversationManager.StartManualConversation(solvedDialogue);
+            return;
+        }
+
+        if (!NPCInteract.hasFinishedFirstTalk)
+        {
+            conversationManager.StartManualConversation(preNPCDialogue);
+            return;
+        }
+
+        if (!hasSeenIntroDialogue)
+        {
+            hasSeenIntroDialogue = true;
+            waitingForPuzzleOpen = true; 
+            conversationManager.StartManualConversation(postNPCDialogue); 
+            return;
+        }
+
+        OpenReceiptPuzzle();
+    }
+
+    public void OpenReceiptPuzzle()
+    {
+        isInteracting = true;
+        if (playerController != null) playerController.enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        if (playerInputs != null) playerInputs.SetCursorLocked(false);
+        if (receiptCanvas != null) receiptCanvas.SetActive(true);
+        ShowPrompt(false);
+    }
+
+    public void TriggerMathError(bool isSubtotalError)
+    {
+        DialogueLine[] selectedError = isSubtotalError ? mathErrorSubtotal : mathErrorTax;
+        conversationManager.StartManualConversation(selectedError);
+    }
+
+    private bool IsPlayerFacing()
+    {
+        if (playerCamera == null) return false;
+        Vector3 dir = (transform.position - playerCamera.position).normalized;
+        float dot = Vector3.Dot(playerCamera.forward, dir);
+        return dot > facingThreshold;
     }
 
     public override void ForceEnd()
     {
         isInteracting = false;
-        isShowingError = false;
+        waitingForPuzzleOpen = false;
         if (playerController != null) playerController.enabled = true;
         if (receiptCanvas != null) receiptCanvas.SetActive(false);
-        if (hintCanvas != null) hintCanvas.SetActive(false);
-        if (narrativeDialogueCanvas != null) narrativeDialogueCanvas.SetActive(false);
-        if (errorCanvas != null) errorCanvas.SetActive(false);
         if (playerInputs != null) playerInputs.SetCursorLocked(true);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        ShowPrompt(false);
     }
 
     public void CloseInteraction(bool solvedCorrectly)
     {
-        if (solvedCorrectly) 
-        {
-            isSolved = true;
-            isReceiptSolved = true; 
-        }
+        if (solvedCorrectly) isReceiptSolved = true; 
         ForceEnd();
     }
 }

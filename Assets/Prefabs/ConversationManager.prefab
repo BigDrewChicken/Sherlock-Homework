@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581901956796782466}
   - component: {fileID: 2684024005323760421}
+  - component: {fileID: 5745243839344396936}
   m_Layer: 0
   m_Name: ConversationManager
   m_TagString: Untagged
@@ -47,37 +48,184 @@ MonoBehaviour:
   initialConversation:
   - speakerName: Little Kid
     text: Ms. Cafeteria Lady, I told you, my change is short!
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
   - speakerName: Cafeteria Lady
     text: I'm sorry, but I just can't believe that. The machine spat that out!
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Little Kid
     text: But I recomputed everything, I was short!
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
   - speakerName: Cafeteria Lady
     text: Hmm, how can we solve this...
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Cafeteria Lady
     text: Ah! Detective! I didn't see you there.
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Cafeteria Lady
     text: 'You''re a trustworthy person who knows how to compute for percentages
       and increases, right? '
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Cafeteria Lady
     text: Would you mind recomputing the receipt that the machine printed? I'm sure
       it's right.
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Cafeteria Lady
     text: Speaking of, where is it, little girl?
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Little Kid
     text: "I left the food and receipt over by a poster, and I\u2019m sure there\u2019s
       a trash can nearby too."
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
   - speakerName: Cafeteria Lady
     text: Hmm, I see. Detective, would you mind checking that receipt and recomputing
       the math for us? Thank you!
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
   - speakerName: Little Kid
     text: Please help, detective!
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
   solvedConversation:
-  - speakerName: 
-    text: 
+  - speakerName: Cafeteria Lady
+    text: So how did it go, Detective? Are we now certain that the machine is right?
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
+  - speakerName: Little Kid
+    text: Please Detective, I recomputed everything! I just learned about percentages
+      in my math class recently, and I know I'm right!
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
+  - speakerName: Detective
+    text: Ms. Cafeteria Lady, how much exactly did you give this little kid?
+    voiceLine: {fileID: 0}
+  - speakerName: Cafeteria Lady
+    text: 'Well, she gave me {amountGiven}, and I gave her {wrongChange}... and that''s
+      after the added tax! '
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
+  - speakerName: Detective
+    text: Ms. Cafeteria Lady, I recomputed everything, and the change you're supposed
+      to give is {change}, and yes, that's after added tax.
+    voiceLine: {fileID: 0}
+  - speakerName: Detective
+    text: It's exactly what the machine printed, too. I'm sure it's just a mistake
+      on your part.
+    voiceLine: {fileID: 0}
+  - speakerName: Cafeteria Lady
+    text: Oh.....! I see... I'm sorry little kid, I'll give you the change you need.
+      I guess I read the receipt wrong? Ehehe...
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
+  - speakerName: Little Kid
+    text: Thank you, Ms.! It's okay, we all make mistakes. and thank you too, Detective!
+    voiceLine: {fileID: 8300000, guid: f229f236d3ba1834f9ef5ba69e814df8, type: 3}
+  - speakerName: Cafeteria Lady
+    text: Yes, thank you detective! Without your help, this problem wouldn't be solved.
+    voiceLine: {fileID: 8300000, guid: 01b56d40ecad0054aa787575336c6fcc, type: 3}
+  - speakerName: Detective
+    text: All in a day's work.
+    voiceLine: {fileID: 0}
+  hintConversation:
+  - speakerName: Detective
+    text: Hmm, they told me I should recompute the receipt to check for errors. The
+      little kid mentioned its by a poster, near a trash can. I should get to work.
+    voiceLine: {fileID: 0}
   interactButton: {fileID: 0}
   dialogueCanvas: {fileID: 0}
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
+  audioSource: {fileID: 5745243839344396936}
   playerInputs: {fileID: 0}
-  inputCooldown: 1
-  typingSpeed: 0.04
+  inputCooldown: 0.25
+  typingSpeed: 0.06
+  receiptBehavior: {fileID: 0}
+--- !u!82 &5745243839344396936
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311249835568238718}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

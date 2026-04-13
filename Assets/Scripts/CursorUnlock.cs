@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CursorUnlock : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    void Start()
+    {
+        UnlockCursor();
+    }
+
+    void UnlockCursor(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+}
