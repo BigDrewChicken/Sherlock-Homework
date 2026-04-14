@@ -44,22 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 268dc70b105993846a123be43345df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileIndex: 15
+  fileIndex: 5
   skinIndex: 0
   loadTag: 
   startID: 0
   curFocusID: 0
-  currentID: 17571
+  currentID: 42172
   autosave: 1
   previewPanning: 0
-  currentDiag: 15
+  currentDiag: 5
   locEdit: 0
-  pNodeID: 18
-  aNodeID: 2
+  pNodeID: 2
+  aNodeID: 3
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: Detective! My calculator was stolen right before the big exam!
+    - text: Don't look at me, Detective! It's impossible that I took it because I
+        am a good student with a very big vocabulary.
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -70,122 +71,80 @@ MonoBehaviour:
         x: 301
         y: 63
         width: 30
-        height: 33
+        height: 63
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 0
     rect:
       serializedVersion: 2
-      x: -1330
-      y: -20
+      x: -650
+      y: -50
       width: 348
-      height: 139
-    pTag: Owner
+      height: 169
+    pTag: Defendant 3
     expand: 0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
-  - commentCount: 1
+  - commentCount: 3
     s_comment:
-    - text: I saw someone drop a book nearby. Maybe it's a clue?
+    - text: You ended that entire sentence with a preposition; only a guilty thief
+        would be so careless with their word order!
       extraData: ExtraData
       inputSetIndex: 1
-      outputNodeIndex: 2
+      outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
-        x: 301
-        y: 63
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: You used 'it's' instead of 'its' in your written notes; your orthography
+        is as messy as your suspicious alibi!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: You just used a 'redundancy' error by saying 'very big'; a true master
+        of the dictionary would be more concise!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 191
         width: 30
-        height: 33
+        height: 63
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 1
     rect:
       serializedVersion: 2
-      x: -940
-      y: -20
+      x: -290
+      y: -40
       width: 348
-      height: 139
-    pTag: Owner
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 4
-    s_comment:
-    - text: I'll go question the first suspect.
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: 3
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 63
-        width: 30
-        height: 23
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: Where exactly was the book dropped?
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: 4
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 87
-        width: 30
-        height: 33
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: What did the suspect look like?
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: 5
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 121
-        width: 30
-        height: 23
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: I'm on the case!
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: 6
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 300
-        y: 145
-        width: 30
-        height: 23
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 2
-    rect:
-      serializedVersion: 2
-      x: -530
-      y: -20
-      width: 348
-      height: 211
+      height: 297
     pTag: Player
     expand: 0
     sprite: {fileID: 0}
@@ -194,7 +153,38 @@ MonoBehaviour:
     isPlayer: 1
   - commentCount: 1
     s_comment:
-    - text: Be careful. One of them is a very bad liar.
+    - text: Comment...
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 110
+      width: 348
+      height: 129
+    pTag: 
+    expand: 0
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Okay, okay! You caught me! My grammar failed me! I just wanted to pass
+        the math exam so badly. Here is the calculator. I'm sorry!
       extraData: ExtraData
       inputSetIndex: 3
       outputNodeIndex: -1
@@ -212,101 +202,11 @@ MonoBehaviour:
     ID: 3
     rect:
       serializedVersion: 2
-      x: -90
-      y: -80
+      x: 130
+      y: 110
       width: 348
-      height: 139
-    pTag: Owner
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: It's right there on the floor. Looks like an English Dictionary.
-      extraData: ExtraData
-      inputSetIndex: 4
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 4
-    rect:
-      serializedVersion: 2
-      x: -80
-      y: 90
-      width: 348
-      height: 139
-    pTag: Owner
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: They were wearing a student uniform. That's all I saw!
-      extraData: ExtraData
-      inputSetIndex: 5
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 5
-    rect:
-      serializedVersion: 2
-      x: -80
-      y: 240
-      width: 348
-      height: 139
-    pTag: Owner
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: Please hurry! The exam starts in a few minutes!
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 6
-    rect:
-      serializedVersion: 2
-      x: -80
-      y: 410
-      width: 348
-      height: 139
-    pTag: Owner
+      height: 169
+    pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
