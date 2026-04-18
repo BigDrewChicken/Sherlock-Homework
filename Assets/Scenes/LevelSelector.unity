@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 2
@@ -174,7 +171,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: The Science Fair project of the students mysteriously vanished, can
-        you figure out what happened and why>
+        you figure out what happened and why?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557595252826887641, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557595252826887641, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3169589134062132569, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
         type: 3}
@@ -232,6 +239,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4114195797366779761, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114195797366779761, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4790385505665798231, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
         type: 3}
       propertyPath: scene
@@ -257,6 +274,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.00098419
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104825416989262624, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.2757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104825416989262624, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -31.1
       objectReference: {fileID: 0}
     - target: {fileID: 6349009153799269119, guid: 6959e5246171bbf40bd9ad2f8fd45b96,
         type: 3}
