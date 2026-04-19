@@ -1,64 +1,88 @@
 using UnityEngine;
-using UnityEngine.UI;
+using VIDE_Data; // Make sure VIDE is installed
 using TMPro;
-using VIDE_Data;
 
 public class ConversationManager : MonoBehaviour
 {
+
+    // The current stage of the mystery: 0=Owner, 1=Def1, 2=Def2, 3=Def3
+    public int investigationProgress = 0; 
+
     [Header("UI References")]
-    public GameObject dialogueCanvas;
+    public GameObject dialoguePanel;
     public TextMeshProUGUI npcText;
     public TextMeshProUGUI nameText;
+    public GameObject choiceButtonPrefab; // A button prefab to spawn for Player Nodes
+    public Transform choiceContainer;    // The UI parent where buttons appear
 
-    // This property fixes the 'IsTalking' errors in your other script
-    public bool IsTalking => VD.isActive;
-
-    void Start()
+    // This is the function DialogueInteract will call
+    public void TryStartConversation(string npcName)
     {
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(false);
+        if (VD.isActive) return;
 
-        // Fixes the 'matches delegate' errors by using the correct signature
+        // Check if player is talking to the correct person in order
+        if (CanTalkTo(npcName))
+        {
+            StartDialogue(npcName);
+        }
+        else
+        {
+            Debug.Log("I haven't found enough evidence to talk to " + npcName + " yet.");
+            // Optional: Show a "I'm not ready to talk to them" UI message here
+        }
+    }
+
+    private bool CanTalkTo(string name)
+    {
+        if (name == "Owner" && investigationProgress == 0) return true;
+        if (name == "Defendant 1" && investigationProgress == 1) return true;
+        if (name == "Defendant 2" && investigationProgress == 2) return true;
+        if (name == "Defendant 3" && investigationProgress == 3) return true;
+        return false;
+    }
+
+    private void StartDialogue(string name)
+    {
         VD.OnNodeChange += UpdateUI;
-        VD.OnEnd += OnDialogueEnd;
+        VD.OnEnd += EndDialogue;
+        VD.BeginDialogue(name); // Starts the VIDE node tree
+        dialoguePanel.SetActive(true);
     }
 
-    void OnDestroy()
+   void UpdateUI(VD.NodeData data)
     {
-        VD.OnNodeChange -= UpdateUI;
-        VD.OnEnd -= OnDialogueEnd;
-    }
+        // Clear previous choice buttons
+        foreach (Transform child in choiceContainer) Destroy(child.gameObject);
 
-    public void StartConversation(VIDE_Assign npc)
-    {
-        if (npc == null) return;
-        VD.BeginDialogue(npc);
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(true);
-    }
-
-    public void HandleInteraction()
-    {
-        if (!VD.isActive) return;
-        VD.Next();
-    }
-
-    // This signature matches what VIDE expects (VD.NodeData)
-    void UpdateUI(VD.NodeData data)
-    {
-        if (npcText != null && nameText != null)
+        if (data.isPlayer) 
+        {
+            for (int i = 0; i < data.comments.Length; i++)
+            {
+                int index = i;
+                GameObject btn = Instantiate(choiceButtonPrefab, choiceContainer);
+                btn.GetComponentInChildren<TextMeshProUGUI>().text = data.comments[i];
+                
+                // FIX START: This is the part causing your error
+                btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => {
+                    data.commentIndex = index; // Set the choice
+                    VD.Next();                 // Call Next with NO arguments
+                });
+                // FIX END
+            }
+        }
+        else 
         {
             npcText.text = data.comments[data.commentIndex];
             nameText.text = data.tag;
         }
     }
 
-    void OnDialogueEnd(VD.NodeData data)
+ void EndDialogue(VD.NodeData data)
     {
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(false);
-    }
-
-    public void ForceEnd()
-    {
-        VD.EndDialogue();
-        if (dialogueCanvas != null) dialogueCanvas.SetActive(false);
-    }
-}
+        VD.OnNodeChange -= UpdateUI;
+        VD.OnEnd -= EndDialogue;
+        dialoguePanel.SetActive(false);
+        
+        investigationProgress++; 
+    } // This closes the EndDialogue function
+} // THIS IS THE ONE YOU ARE LIKELY MISSING (closes the Class)
