@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3260085324692357277}
   - component: {fileID: 519308078987005417}
   m_Layer: 5
-  m_Name: InteractPromptCanvas
+  m_Name: InteractPrompt_LVL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
