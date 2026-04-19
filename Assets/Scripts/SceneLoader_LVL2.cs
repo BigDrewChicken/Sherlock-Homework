@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader_LVL2 : MonoBehaviour
 {
     // Scene dragged from the Project window to avoid typing scene names manually
 #if UNITY_EDITOR // Scene asset can only be accessed in Unity Editor, so this is essential.
