@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\My project\\Scene 2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\SceneLoader_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SceneLoader_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\ConversationManager_L3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ConversationManager_L3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\PlayerInteraction_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerInteraction_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\ConversationManager_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,28 +23,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\DialogueInteract_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\GameProgression_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\GameProgression_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\PlayerInteraction_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerInteraction_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,43 +39,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SceneLoader_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\SceneLoader_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneLoader_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\SceneLoader_LVL2.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SceneLoader_LVL2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Title": "ConversationManager_L3.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\ConversationManager_L3.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ConversationManager_L3.cs",
+              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\ConversationManager_L3.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ConversationManager_L3.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAowNAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T05:31:42.146Z",
+              "WhenOpened": "2026-04-20T05:03:18.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UICanvasControllerInput_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs",
-              "RelativeToolTip": "Assets\\StarterAssets\\Mobile\\Scripts\\CanvasInputs\\UICanvasControllerInput_LVL2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Title": "WinTrigger_LVL2.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs",
+              "RelativeDocumentMoniker": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs",
+              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs",
+              "RelativeToolTip": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\WinTrigger_LVL2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T01:53:45.572Z"
+              "WhenOpened": "2026-04-20T00:54:57.885Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FirstPersonController_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs",
-              "RelativeToolTip": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\FirstPersonController_LVL2.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAGYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T01:42:47.566Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "PlayerInteraction_LVL2.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\PlayerInteraction_LVL2.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerInteraction_LVL2.cs",
@@ -115,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DialogueInteract_LVL2.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\DialogueInteract_LVL2.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DialogueInteract_LVL2.cs",
@@ -127,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ConversationManager_LVL2.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\Scripts\\ConversationManager_LVL2.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ConversationManager_LVL2.cs",
@@ -136,42 +109,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-14T09:41:05.397Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StarterAssetsInputs_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs",
-              "RelativeToolTip": "Assets\\StarterAssets\\InputSystem\\StarterAssetsInputs_LVL2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T01:33:56.352Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UIVirtualJoystick_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs",
-              "RelativeToolTip": "Assets\\StarterAssets\\Mobile\\Scripts\\VirtualInputs\\UIVirtualJoystick_LVL2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T02:53:30.182Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BasicRigidBodyPush_LVL2.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs",
-              "RelativeDocumentMoniker": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs",
-              "ToolTip": "C:\\Users\\Admin\\My project\\Scene 2\\Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs",
-              "RelativeToolTip": "Assets\\StarterAssets\\FirstPersonController\\Scripts\\BasicRigidBodyPush_LVL2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-19T03:09:43.631Z"
             }
           ]
         }

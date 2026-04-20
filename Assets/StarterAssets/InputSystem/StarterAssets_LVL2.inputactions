@@ -3,7 +3,7 @@
     "name": "StarterAssets_LVL2",
     "maps": [
         {
-            "name": "Player_LVL2",
+            "name": "Player",
             "id": "f62a4b92-ef5e-4175-8f4c-c9075429d32c",
             "actions": [
                 {
