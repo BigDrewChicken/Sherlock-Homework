@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7265548904534295181}
   - component: {fileID: 6348983043234314574}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: BackButton_LVL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

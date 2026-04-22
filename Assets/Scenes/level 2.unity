@@ -119,6 +119,77 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &83714268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 83714269}
+  - component: {fileID: 83714271}
+  - component: {fileID: 83714270}
+  m_Layer: 0
+  m_Name: DetectPlayer4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &83714269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83714268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2024205496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83714270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83714268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Defendant 3
+  assignedDialogue: {fileID: 2024205494}
+--- !u!135 &83714271
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83714268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1 &84219510
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   sharedProfile: {fileID: 0}
+=======
+  sharedProfile: {fileID: 11400000, guid: eb0c7f947126d924ebdcd292be9be7aa, type: 2}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   isGlobal: 0
   blendDistance: 0
   weight: 1
@@ -168,6 +243,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &117470698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8069967209429677817, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &148014021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148014023}
+  - component: {fileID: 148014022}
+  m_Layer: 0
+  m_Name: ProgressionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &148014022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148014021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f1e17d87a66f84b91dec3eeae9b56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerDone: 1
+  d1Done: 1
+  d2Done: 1
+  d3Done: 1
+--- !u!4 &148014023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148014021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.528706, y: 0.98999864, z: 1.3013337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &198178881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,12 +396,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e92d96f9fecb904e8b124d518518b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   investigationProgress: 0
   dialoguePanel: {fileID: 0}
   npcText: {fileID: 569859891}
   nameText: {fileID: 777061656}
   choiceButtonPrefab: {fileID: 0}
   choiceContainer: {fileID: 0}
+=======
+  dialogueCanvas: {fileID: 614833333}
+  npcDialogueGroup: {fileID: 1996520948}
+  choicePanel: {fileID: 1940646236}
+  npcText: {fileID: 937656552}
+  nameText: {fileID: 630672750}
+  choiceButtons:
+  - {fileID: 611851650}
+  - {fileID: 117470698}
+  - {fileID: 910007591}
+  choiceTexts:
+  - {fileID: 2130076624}
+  - {fileID: 1575050425}
+  - {fileID: 1979834849}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!224 &203044690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -296,6 +449,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -36
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 403119449211640903, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 1291293381876520048, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 618
@@ -304,6 +464,33 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -111
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 83.333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -208.33334
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 1899793165088492430, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -396
@@ -328,6 +515,13 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 5158566438391587812, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 5494058492813230053, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -336,6 +530,21 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 103.5
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 6567867799623353401, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -418,7 +627,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7082724183475445026, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_IsActive
+<<<<<<< HEAD
       value: 0
+=======
+      value: 1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_LocalScale.x
@@ -456,6 +669,57 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 83.333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 83.333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -41.666668
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -634,7 +898,11 @@ MonoBehaviour:
   assignedID: 78930
   assignedDialogue: Defendant1_Dialogue
   interactionCount: 0
+<<<<<<< HEAD
   alias: Defendant1
+=======
+  alias: Defendant 1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
@@ -662,6 +930,7 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: To see the window, you MUST walk past the desk. Your alibi is a lie!
@@ -673,6 +942,12 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     - text: The window has a nice view today.
+=======
+  - commentCount: 3
+    s_comment:
+    - text: You used 'oblivious' as a verb earlier; that grammar error proves you
+        are lying about your location!
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -680,18 +955,34 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: I think you're just avoiding my gaze.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
+=======
+    - text: Your use of 'literally' was actually figurative; I cannot trust a witness
+        who uses such poor syntax!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: I need to check the room layout and my dictionary.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 7
+=======
+    - text: You failed to use a serial comma in your last statement; your lack of
+        precision makes you a suspect!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -704,7 +995,12 @@ MonoBehaviour:
     isPlayer: 1
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: Go check your books then. I have nothing else to say.
+=======
+    - text: Fine, I lied! I was at the bookshelf. But I saw Defendant 2 asking the
+        teacher a question near the desk right before class ended. Go talk to them!
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: -1
@@ -712,6 +1008,7 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     ID: 6
     pTag: Defendant 1
     sprite: {fileID: 0}
@@ -728,12 +1025,15 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     ID: 2
     pTag: Defendant 1
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: You shouldn't ignore school property.
@@ -824,6 +1124,8 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   S_actionNodes: []
 --- !u!4 &327390150 stripped
 Transform:
@@ -863,8 +1165,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 203044689}
   thisNPCName: 
+=======
+  npcName: Defendant 1
+  assignedDialogue: {fileID: 327390148}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!136 &327390153
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -888,6 +1195,77 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &328042486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328042487}
+  - component: {fileID: 328042489}
+  - component: {fileID: 328042488}
+  m_Layer: 0
+  m_Name: DetectPlayer5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328042487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328042486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1777342813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328042488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328042486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Dictionary
+  assignedDialogue: {fileID: 1777342808}
+--- !u!135 &328042489
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328042486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &380020812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,11 +1682,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9221342930631031818, guid: 0b161aeecf94b6740952dca9ce8860b7, type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: npc 2 (suspect)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
+=======
+      value: Defendant 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8409093677575710384, guid: 0b161aeecf94b6740952dca9ce8860b7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1664569248}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9221342930631031818, guid: 0b161aeecf94b6740952dca9ce8860b7, type: 3}
       insertIndex: -1
@@ -1459,7 +1848,11 @@ GameObject:
   - component: {fileID: 516237665}
   - component: {fileID: 516237664}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: DetectPlayer
+=======
+  m_Name: DetectPlayer1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1477,8 +1870,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 0}
   thisNPCName: 
+=======
+  npcName: Owner
+  assignedDialogue: {fileID: 1198700881}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!135 &516237665
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1508,12 +1906,21 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516237663}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.70648193, y: 0.4908141, z: 0.46315813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1595442930}
+=======
+  m_LocalRotation: {x: 0.012773986, y: -0.6796262, z: 0.0062682233, w: 0.7334206}
+  m_LocalPosition: {x: -0.017, y: 1.039, z: 0.197}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1198700882}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &523716178
 PrefabInstance:
@@ -1647,6 +2054,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4558593196022300, guid: 991e8973513e2ad408232c1afeb3a9df, type: 3}
   m_PrefabInstance: {fileID: 525072273}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &569859891 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7508147368593359851, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
@@ -1658,6 +2066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &571920703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1856,7 +2266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5227831390482902109, guid: fc4174834ee7f204d90018522879a07d, type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: npc 3 (suspect)
+=======
+      value: Defendant 3
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 8726855662867907660, guid: fc4174834ee7f204d90018522879a07d, type: 3}
       propertyPath: m_LocalScale.y
@@ -1864,7 +2278,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< HEAD
     m_AddedGameObjects: []
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4883921107808089831, guid: fc4174834ee7f204d90018522879a07d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 83714269}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5227831390482902109, guid: fc4174834ee7f204d90018522879a07d, type: 3}
       insertIndex: -1
@@ -1879,6 +2300,36 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2024205499}
   m_SourcePrefab: {fileID: 100100000, guid: fc4174834ee7f204d90018522879a07d, type: 3}
+<<<<<<< HEAD
+=======
+--- !u!114 &611851650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5533040036493312261, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &614833333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7082724183475445026, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &630672750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5494058492813230053, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &696385955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2127,6 +2578,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4677248624428304, guid: 95b7030fe576ba84e930b6af82eb2738, type: 3}
   m_PrefabInstance: {fileID: 776649239}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &777061656 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5494058492813230053, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
@@ -2138,6 +2590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &781880949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2208,6 +2662,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
+=======
+    - target: {fileID: 453084650579209843, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player_LVL2
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: GroundLayers.m_Bits
       value: 1
@@ -2224,6 +2685,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -23.948792
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 5126527961139664766, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - target: {fileID: 5126527961139664767, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: orthographic size
       value: 10
@@ -2286,7 +2754,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094977340588366727, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: MC (Detective)
+=======
+      value: Detective
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 7094977340588366727, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       propertyPath: m_TagString
@@ -2300,6 +2772,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5126527961139664765, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1063550514}
+<<<<<<< HEAD
+=======
+    - targetCorrespondingSourceObject: {fileID: 5126527961139664765, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1063550519}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     - targetCorrespondingSourceObject: {fileID: 453084650579209855, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 414920902}
@@ -2630,6 +3108,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4558593196022300, guid: 991e8973513e2ad408232c1afeb3a9df, type: 3}
   m_PrefabInstance: {fileID: 905562488}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &910007591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2106584086210394873, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &914350614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2696,6 +3188,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4895497590064792, guid: 288b229db858c114299d1bf70ffc95cd, type: 3}
   m_PrefabInstance: {fileID: 914350614}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &937656552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7508147368593359851, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &956874350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3081,6 +3587,25 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+<<<<<<< HEAD
+=======
+--- !u!114 &1063550519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063550509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4200f69b60373a34e8af6153d95829ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 1
+  interactPromptUI: {fileID: 1322157099}
+  diagManager: {fileID: 203044689}
+  progression: {fileID: 148014022}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &1113035016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3135,7 +3660,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< HEAD
     m_AddedGameObjects: []
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4972761654227428, guid: b20b5222bdd4e455fbef4fbcce87d19c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 328042487}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1173737344391802, guid: b20b5222bdd4e455fbef4fbcce87d19c, type: 3}
       insertIndex: -1
@@ -3406,17 +3938,30 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
+<<<<<<< HEAD
   notuptodate: 1
+=======
+  notuptodate: 0
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   startp: 0
   loadtag: 
   langs: []
   S_playerDiags:
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: Detective! My calculator was stolen right before the big exam!
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
+=======
+    - text: Detective, thank goodness you're here! Someone took the master calculator
+        right before the final exam started. I saw a student drop a book nearby...
+        you should start by questioning the students!
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -3427,6 +3972,7 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 1
     s_comment:
     - text: I saw someone drop a book nearby. Maybe it's a clue?
@@ -3547,6 +4093,8 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   S_actionNodes: []
 --- !u!4 &1198700882 stripped
 Transform:
@@ -3586,8 +4134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 203044689}
   thisNPCName: 
+=======
+  npcName: Owner
+  assignedDialogue: {fileID: 1198700881}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!136 &1198700885
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3789,6 +4342,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4998339441236886, guid: 7d65db92ee1ad5644a8177816885460b, type: 3}
   m_PrefabInstance: {fileID: 1313290107}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &1322157099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6718893688992014261, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+  m_PrefabInstance: {fileID: 1381211349}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &1323292181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3997,7 +4558,11 @@ PrefabInstance:
       objectReference: {fileID: -8820499275058686143, guid: c00be380054f3aa469720cb9cd40ef14, type: 3}
     - target: {fileID: 7312575046814370627, guid: 5736e576bae68ca4393c5441179cace9, type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: npc 4 (victim)
+=======
+      value: Owner
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 7822765092591975953, guid: 5736e576bae68ca4393c5441179cace9, type: 3}
       propertyPath: m_Mesh
@@ -4054,7 +4619,14 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6930185701218107432, guid: 5736e576bae68ca4393c5441179cace9, type: 3}
     m_RemovedGameObjects: []
+<<<<<<< HEAD
     m_AddedGameObjects: []
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8123965163915932741, guid: 5736e576bae68ca4393c5441179cace9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 516237666}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7312575046814370627, guid: 5736e576bae68ca4393c5441179cace9, type: 3}
       insertIndex: -1
@@ -4146,9 +4718,19 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: acdb9afe490303e42b0ddda9e4142e6d, type: 2}
+<<<<<<< HEAD
     - target: {fileID: 5139666920524405419, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
       propertyPath: m_Name
       value: npc 1 (suspect)
+=======
+    - target: {fileID: 2066989134785871022, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139666920524405419, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
+      propertyPath: m_Name
+      value: Defendant 1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 5483153960478867473, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
       propertyPath: m_LocalScale.x
@@ -4204,7 +4786,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< HEAD
     m_AddedGameObjects: []
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5483153960478867473, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2020124929}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5139666920524405419, guid: 68449bdc2fe089140a9fa41a51921e02, type: 3}
       insertIndex: -1
@@ -4299,11 +4888,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< HEAD
       value: -32.7
       objectReference: {fileID: 0}
     - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 80.5
+=======
+      value: 369
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       objectReference: {fileID: 0}
     - target: {fileID: 3701884422455021716, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_IsActive
@@ -4662,6 +5259,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4592770765900944, guid: 935ba91ea5459eb4d8917d5e94bc3ddf, type: 3}
   m_PrefabInstance: {fileID: 1557801819}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &1575050425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1 &1587050046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9221342930631031818, guid: 0b161aeecf94b6740952dca9ce8860b7, type: 3}
@@ -4703,7 +5314,11 @@ MonoBehaviour:
   assignedID: 14112
   assignedDialogue: Defendant2_Dialogue
   interactionCount: 0
+<<<<<<< HEAD
   alias: Defendant2
+=======
+  alias: Defendant 2
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
@@ -4716,7 +5331,12 @@ MonoBehaviour:
   S_playerDiags:
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: The calculator was taken while I was resting. It wasn't me!
+=======
+    - text: Yes, Detective? Me and Defendant 1 are innocent. We were just studying
+        our vocabulary lists together.
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -4730,9 +5350,25 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: Passive Voice! You are hiding the subject to avoid responsibility.
+=======
+  - commentCount: 3
+    s_comment:
+    - text: You used a double negative in that sentence; a person who breaks grammar
+        rules surely breaks school rules!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: You used 'Me' as a subject pronoun instead of 'I'; that grammatical slip-up
+        reveals your hidden guilt!
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -4740,6 +5376,7 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: Active Voice! You are taking direct responsibility for the action.
       extraData: ExtraData
       inputSetIndex: 1
@@ -4760,6 +5397,13 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 6
+=======
+    - text: Your subject and verb do not agree in that statement; I suspect your
+        story is just as mismatched as your tense!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -4772,10 +5416,18 @@ MonoBehaviour:
     isPlayer: 1
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: I don't know! Everyone needs to mind their own business!
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: 3
+=======
+    - text: Ugh, my English teacher would be so disappointed! Okay, I was near the
+        desk. But I saw Defendant 3 hiding something in their backpack very suspiciously!
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -4786,6 +5438,7 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: You used a metaphor here which makes your logic very confusing.
@@ -4891,6 +5544,8 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   S_actionNodes: []
 --- !u!4 &1587050051 stripped
 Transform:
@@ -4930,8 +5585,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 203044689}
   thisNPCName: 
+=======
+  npcName: Defendant 2
+  assignedDialogue: {fileID: 1587050049}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!136 &1587050054
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4984,12 +5644,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD
   - {fileID: 327390150}
   - {fileID: 1198700882}
   - {fileID: 1587050051}
   - {fileID: 2024205496}
   - {fileID: 1777342813}
   - {fileID: 516237666}
+=======
+  - {fileID: 1198700882}
+  - {fileID: 327390150}
+  - {fileID: 1587050051}
+  - {fileID: 2024205496}
+  - {fileID: 1777342813}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1615648725
@@ -5116,6 +5784,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4895497590064792, guid: 288b229db858c114299d1bf70ffc95cd, type: 3}
   m_PrefabInstance: {fileID: 1653068996}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &1664569247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664569248}
+  - component: {fileID: 1664569250}
+  - component: {fileID: 1664569249}
+  m_Layer: 0
+  m_Name: DetectPlayer3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1664569248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664569247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1587050051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664569249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664569247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Defendant 2
+  assignedDialogue: {fileID: 1587050049}
+--- !u!135 &1664569250
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664569247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &1676781052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5306,8 +6045,13 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: 'RULE: Adjectives (like ''obvious'') describe a state of being. They
         cannot be used as verbs (action words). You cannot ''obvious'' someone.'
+=======
+    - text: This is an adjective used to describe someone unaware of their surroundings.
+        It cannot be used as a verb (e.g., "I obliviously the desk").
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -5323,9 +6067,14 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: 'RULE: Passive Voice (e.g., ''was taken'') is often used to hide the
         ''doer'' of an action. Active Voice (e.g., ''I took'') names the subject
         directly.'
+=======
+    - text: Used to emphasize that something is exactly true. Misusing it for figurative
+        exaggeration often reveals a witness is being performative rather than factual.
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: 3
@@ -5341,8 +6090,13 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: Everyone' is a singular indefinite pronoun. Use 'his/her,' not 'their.'
         Also, subjects like 'English' are Proper Nouns and MUST be capitalized.
+=======
+    - text: The final comma in a list. Omitting it can change the meaning of a sentence
+        entirely, often used as a sign of inconsistent or rushed reporting.
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 3
       outputNodeIndex: 4
@@ -5358,9 +6112,14 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: 'RULE: A Double Negative (e.g., ''didn''t take nothing'') creates a positive
         meaning. Also, a False Cause fallacy claims one event caused another without
         logic.'
+=======
+    - text: A witness who fails these basic linguistic checks is likely providing
+        a "scripted" or "false" testimony.
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 4
       outputNodeIndex: 5
@@ -5403,8 +6162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 203044689}
   thisNPCName: 
+=======
+  npcName: Dictionary
+  assignedDialogue: {fileID: 1777342808}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!65 &1777342810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5695,6 +6459,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4558593196022300, guid: 991e8973513e2ad408232c1afeb3a9df, type: 3}
   m_PrefabInstance: {fileID: 1906403331}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &1940646236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5158566438391587812, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979834849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1 &1992279346
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,6 +6605,82 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+<<<<<<< HEAD
+=======
+--- !u!1 &1996520948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403119449211640903, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2020124928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2020124929}
+  - component: {fileID: 2020124931}
+  - component: {fileID: 2020124930}
+  m_Layer: 0
+  m_Name: DetectPlayer2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2020124929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020124928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327390150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2020124930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Defendant 1
+  assignedDialogue: {fileID: 327390148}
+--- !u!135 &2020124931
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020124928}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 1.2191626, z: 0}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1 &2024205491 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5227831390482902109, guid: fc4174834ee7f204d90018522879a07d, type: 3}
@@ -5863,7 +6722,11 @@ MonoBehaviour:
   assignedID: 42172
   assignedDialogue: Defendant3_Dialogue
   interactionCount: 0
+<<<<<<< HEAD
   alias: Defendant3
+=======
+  alias: Defendant 3
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
@@ -5876,8 +6739,13 @@ MonoBehaviour:
   S_playerDiags:
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: I didn't take nothing! I was just packing up quickly and fast to get
         to class!
+=======
+    - text: Don't look at me, Detective! It's impossible that I took it because I
+        am a good student with a very big vocabulary.
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -5891,25 +6759,48 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: Redundancy Error! Using 'quickly' and 'fast' together is unnecessary.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 6
+=======
+  - commentCount: 3
+    s_comment:
+    - text: You ended that entire sentence with a preposition; only a guilty thief
+        would be so careless with their word order!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: Misplaced Modifier! It's unclear what exactly you were packing up.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 6
+=======
+    - text: You used 'it's' instead of 'its' in your written notes; your orthography
+        is as messy as your suspicious alibi!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: Double Negative! 'Didn't take nothing' means you actually took it
+=======
+    - text: You just used a 'redundancy' error by saying 'very big'; a true master
+        of the dictionary would be more concise!
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -5917,6 +6808,7 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
+<<<<<<< HEAD
     - text: I need to check the dictionary for rules regarding double negatives.
       extraData: ExtraData
       inputSetIndex: 1
@@ -5927,16 +6819,28 @@ MonoBehaviour:
       visible: 1
     ID: 1
     pTag: Detective
+=======
+    ID: 1
+    pTag: Player
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 1
   - commentCount: 1
     s_comment:
+<<<<<<< HEAD
     - text: I was rushing! I had to get to my next class. I can't be late for english!
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: 3
+=======
+    - text: Okay, okay! You caught me! My grammar failed me! I just wanted to pass
+        the math exam so badly. Here is the calculator. I'm sorry!
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -5947,6 +6851,7 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+<<<<<<< HEAD
   - commentCount: 4
     s_comment:
     - text: Proper Noun Error! 'English' is a subject and must be capitalized.
@@ -6092,6 +6997,8 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
+=======
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
   S_actionNodes: []
 --- !u!4 &2024205496 stripped
 Transform:
@@ -6131,8 +7038,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   manager: {fileID: 203044689}
   thisNPCName: 
+=======
+  npcName: Defendant 3
+  assignedDialogue: {fileID: 2024205494}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!136 &2024205499
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6156,6 +7068,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &2130076624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+  m_PrefabInstance: {fileID: 221891893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0
 --- !u!1001 &2147387805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6226,3 +7152,7 @@ SceneRoots:
   - {fileID: 1595442930}
   - {fileID: 221891893}
   - {fileID: 1381211349}
+<<<<<<< HEAD
+=======
+  - {fileID: 148014023}
+>>>>>>> 3d3c9a1920b2b0ff3d3dbb0d4ea165db4dde9de0

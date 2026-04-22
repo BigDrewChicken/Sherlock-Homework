@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 460980541573103395}
   - component: {fileID: 8492587136050376004}
   m_Layer: 5
-  m_Name: LevelContainer
+  m_Name: LevelContainer_LVL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,0 @@
-repository "Scene 2/Scene 2@18968364273348@cloud"
-  path "/"
-    br "/main"
-    co "/main"
