@@ -5,7 +5,7 @@ public class WinTrigger_LVL2 : MonoBehaviour
 {
     public GameObject winCanvas;
     // Set this to exactly what your Culprit's name is in the Hierarchy
-    public string culpritName = "Defendant 3";
+    public string culpritName = "Rob";
 
     void OnEnable()
     {

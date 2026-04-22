@@ -588,6 +588,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 47608732794654869, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 47608732794654869, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -36
       objectReference: {fileID: 0}
@@ -597,11 +601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1291293381876520048, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 618
+      value: 398
       objectReference: {fileID: 0}
     - target: {fileID: 1291293381876520048, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -111
+      value: -62
       objectReference: {fileID: 0}
     - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -613,31 +617,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 83.333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1311969380606817825, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -208.33334
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569668974292102161, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1899793165088492430, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -396
+      value: -156
       objectReference: {fileID: 0}
     - target: {fileID: 1899793165088492430, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 68
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontSize
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.w
+      value: 25.546646
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.x
+      value: 33.321686
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.y
+      value: 13.328701
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.z
+      value: 68.86484
       objectReference: {fileID: 0}
     - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
@@ -648,12 +672,36 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1141836756699700668, guid: 8fdfbfbd0a355a64cbda00613aa1642f, type: 2}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2311095772403172503, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontSize
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.w
+      value: 29.989523
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.x
+      value: 52.20401
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.y
+      value: 14.439487
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.z
+      value: 76.63983
       objectReference: {fileID: 0}
     - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
@@ -664,8 +712,16 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1141836756699700668, guid: 8fdfbfbd0a355a64cbda00613aa1642f, type: 2}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390103885284438879, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 2625899774195108447, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_Name
@@ -678,11 +734,15 @@ PrefabInstance:
     - target: {fileID: 4946925133675343170, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 8fdfbfbd0a355a64cbda00613aa1642f, type: 2}
     - target: {fileID: 4946925133675343170, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 1141836756699700668, guid: 8fdfbfbd0a355a64cbda00613aa1642f, type: 2}
+    - target: {fileID: 4946925133675343170, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4946925133675343170, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -726,16 +786,28 @@ PrefabInstance:
       value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5205556
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 693.2927
       objectReference: {fileID: 0}
     - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 250
+      value: 357.5343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 6525859447947045442, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 103.5
+      value: 86.024124
       objectReference: {fileID: 0}
     - target: {fileID: 6567867799623353401, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_Pivot.x
@@ -822,6 +894,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 319.9955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 84.7517
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.1017604
       objectReference: {fileID: 0}
@@ -832,6 +912,14 @@ PrefabInstance:
     - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 38.574463
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264705706765845010, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.3707
       objectReference: {fileID: 0}
     - target: {fileID: 7508147368593359851, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontSize
@@ -851,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7508147368593359851, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_margin.z
-      value: -529.6793
+      value: -118.71362
       objectReference: {fileID: 0}
     - target: {fileID: 7508147368593359851, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
@@ -887,19 +975,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 83.333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8533375295211823878, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -911,23 +999,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 83.333336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8596478996196692588, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -41.666668
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontSize
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.w
+      value: 27.76807
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.x
+      value: 93.3008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.y
+      value: 15.550121
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_margin.z
+      value: 88.85785
       objectReference: {fileID: 0}
     - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_fontAsset
@@ -938,8 +1042,16 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1141836756699700668, guid: 8fdfbfbd0a355a64cbda00613aa1642f, type: 2}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1125,15 +1237,15 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: I've been staring out this window the whole time. I never even walked
-        near the teacher's desk!
+    - text: I've been staring out this window the whole time. I never oblivioused
+        the teacher's desk!
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -1142,7 +1254,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 0
-    pTag: Defendant 1
+    pTag: Garen
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -1184,8 +1296,9 @@ MonoBehaviour:
     isPlayer: 1
   - commentCount: 1
     s_comment:
-    - text: Fine, I lied! I was at the bookshelf. But I saw Defendant 2 asking the
-        teacher a question near the desk right before class ended. Go talk to them!
+    - text: Fine, I lied. My usage was wrong But I didn't do it! I was outside. But
+        I saw a student asking the teacher a question near the desk right before
+        class ended. I think she's by another window, talk to her.
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: -1
@@ -1194,7 +1307,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 2
-    pTag: Defendant 1
+    pTag: Garen
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -1238,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Defendant 1
+  npcName: Garen
   assignedDialogue: {fileID: 327390148}
 --- !u!136 &327390153
 CapsuleCollider:
@@ -4162,8 +4275,7 @@ MonoBehaviour:
   - commentCount: 1
     s_comment:
     - text: Detective, thank goodness you're here! Someone took the master calculator
-        right before the final exam started. I saw a student drop a book nearby...
-        you should start by questioning the students!
+        right before the final exam started. I think a fellow student is the culprit!
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: -1
@@ -4943,12 +5055,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_Pivot.x
+      value: -0.374828
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250.0032
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.8944
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 369
+      value: -21.607
       objectReference: {fileID: 0}
     - target: {fileID: 3610262473336739000, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 62
+      value: 20.6697
       objectReference: {fileID: 0}
     - target: {fileID: 3701884422455021716, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_IsActive
@@ -4957,11 +5085,19 @@ PrefabInstance:
     - target: {fileID: 4839590560813481920, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ad5e7d8f8f349c4eb9d2a37a9537e4b, type: 2}
     - target: {fileID: 4839590560813481920, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -2009771516001885252, guid: 5ad5e7d8f8f349c4eb9d2a37a9537e4b, type: 2}
+    - target: {fileID: 4839590560813481920, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839590560813481920, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 5304343772904823709, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5048,7 +5184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6718893688992014261, guid: 6c946ba36a019d74eb613ce2c928d04a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5365,15 +5501,14 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: Yes, Detective? Me and Defendant 1 are innocent. We were just studying
-        our vocabulary lists together.
+    - text: 'Yes, Detective? Me was innocent. '
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -5382,7 +5517,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 0
-    pTag: Defendant 2
+    pTag: Jane
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -5399,7 +5534,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     - text: You used 'Me' as a subject pronoun instead of 'I'; that grammatical slip-up
-        reveals your hidden guilt!
+        reveals your hidden guilt.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -5408,7 +5543,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     - text: Your subject and verb do not agree in that statement; I suspect your
-        story is just as mismatched as your tense!
+        story is just as mismatched as your tense.
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: -1
@@ -5425,7 +5560,8 @@ MonoBehaviour:
   - commentCount: 1
     s_comment:
     - text: Ugh, my English teacher would be so disappointed! Okay, I was near the
-        desk. But I saw Defendant 3 hiding something in their backpack very suspiciously!
+        desk. But I saw the kid by the window hiding something in their backpack
+        very suspiciously!
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: -1
@@ -5434,7 +5570,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 2
-    pTag: Defendant 2
+    pTag: Jane
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -5478,7 +5614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Defendant 2
+  npcName: Jane
   assignedDialogue: {fileID: 1587050049}
 --- !u!136 &1587050054
 CapsuleCollider:
@@ -5942,14 +6078,15 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: The English Grammar Guide is open. Which section would you like to study?
+    - text: An english book? Maybe this will help me uncover the tracks of the one
+        who took the calculator?
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -5958,15 +6095,17 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 0
-    pTag: Dictionary
+    pTag: Detective
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: This is an adjective used to describe someone unaware of their surroundings.
-        It cannot be used as a verb (e.g., "I obliviously the desk").
+    - text: 'Repetitiveness: When speaking or talking, it is wrong to use the same
+        word over and over again. It makes the speech rehearsed and robotic, often
+        signaling that they are clinging to a fake story rather than speaking naturally
+        about where they were.'
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
@@ -5975,15 +6114,16 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 1
-    pTag: Dictionary
+    pTag: English Book
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: Used to emphasize that something is exactly true. Misusing it for figurative
-        exaggeration often reveals a witness is being performative rather than factual.
+    - text: 'Adverb: A word that describes how, when, or where an action is performed,
+        such as how the suspect quietly entered the classroom to snatch the device
+        from the desk; for example, quietly is an adverb.'
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: 3
@@ -5992,15 +6132,16 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 2
-    pTag: Dictionary
+    pTag: English Book
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: The final comma in a list. Omitting it can change the meaning of a sentence
-        entirely, often used as a sign of inconsistent or rushed reporting.
+    - text: 'Preposition: A word that shows the relationship or location of one thing
+        to another, such as how the stolen calculator was hidden inside a dusty gym
+        locker to avoid detection; for example, inside is a preposition.'
       extraData: ExtraData
       inputSetIndex: 3
       outputNodeIndex: 4
@@ -6009,15 +6150,16 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 3
-    pTag: Dictionary
+    pTag: English Book
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: A witness who fails these basic linguistic checks is likely providing
-        a "scripted" or "false" testimony.
+    - text: 'Double Negative: Using two "no" words in one sentence which actually
+        cancels out the meaning, like when a kid says they don''t have no calculator
+        in their bag; for example, don''t have no is a double negative.'
       extraData: ExtraData
       inputSetIndex: 4
       outputNodeIndex: 5
@@ -6026,23 +6168,114 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 4
-    pTag: Dictionary
+    pTag: English Book
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: closing now
+    - text: 'Subject Pronoun: A word that acts as the "doer" of the sentence. "Me
+        is okay" is wrong, and instead should use "I"; for example, I is a subject
+        pronoun.'
       extraData: ExtraData
       inputSetIndex: 5
-      outputNodeIndex: -1
+      outputNodeIndex: 6
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 5
-    pTag: Dictionary
+    pTag: English Book
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Subject-Verb Agreement: A rule where the subject and the action word
+        must match in number, such as when a guilty kid says "The evidence are fake"
+        instead of "is"; '
+      extraData: ExtraData
+      inputSetIndex: 6
+      outputNodeIndex: 7
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 6
+    pTag: English Book
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Serial Comma: A punctuation mark used to separate three or more items
+        in a list, which a may student skipped when naming their school supplies,
+        leaving their statement cluttered and confusing.'
+      extraData: ExtraData
+      inputSetIndex: 7
+      outputNodeIndex: 8
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 7
+    pTag: English Book
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Oblivious: An adjective used to describe someone who is totally unaware
+        of what is happening around them, but a suspect may incorrectly use it as
+        an action to describe their movements near the desk.'
+      extraData: ExtraData
+      inputSetIndex: 8
+      outputNodeIndex: 9
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 8
+    pTag: English Book
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Literally: An adverb used to emphasize that something is exactly true
+        and not just a metaphor, which a student may use wrong if its not exactly
+        what''s happening.'
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: 10
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 9
+    pTag: English Book
+    sprite: {fileID: 0}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Hmm, interesting. All this information may be useful for me in my task
+        to find the culprit. Maybe even outside this case?
+      extraData: ExtraData
+      inputSetIndex: 10
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 10
+    pTag: Detective
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -6789,7 +7022,7 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
@@ -6797,7 +7030,7 @@ MonoBehaviour:
   - commentCount: 1
     s_comment:
     - text: Don't look at me, Detective! It's impossible that I took it because I
-        am a good student with a very big vocabulary.
+        am a good student with a good vocabulary.
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: 1
@@ -6806,15 +7039,15 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 0
-    pTag: Defendant 3
+    pTag: Rob
     sprite: {fileID: 0}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 3
     s_comment:
-    - text: You ended that entire sentence with a preposition; only a guilty thief
-        would be so careless with their word order!
+    - text: Why did you use an adverb for no reason? Does taking the exam calculator
+        make you feel the need to do so?
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: -1
@@ -6822,20 +7055,20 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: You used 'it's' instead of 'its' in your written notes; your orthography
-        is as messy as your suspicious alibi!
-      extraData: ExtraData
-      inputSetIndex: 1
-      outputNodeIndex: -1
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: You just used a 'redundancy' error by saying 'very big'; a true master
-        of the dictionary would be more concise!
+    - text: "You said \u201Cvery big vocabulary,\u201D which is repetitive! Perhaps
+        you're nervous because you took it?"
       extraData: ExtraData
       inputSetIndex: 1
       outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: You ended your sentence with a preposition! Perhaps stealing makes you
+        forget about grammar?
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -6858,7 +7091,7 @@ MonoBehaviour:
       audios: {fileID: 0}
       visible: 1
     ID: 2
-    pTag: Defendant 3
+    pTag: Rob
     sprite: {fileID: 0}
     vars: []
     varKeys: []
@@ -6902,7 +7135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2e7bef806207f4f9332fb475efd911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Defendant 3
+  npcName: Rob
   assignedDialogue: {fileID: 2024205494}
 --- !u!136 &2024205499
 CapsuleCollider:
@@ -6940,7 +7173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinTrigger_LVL2
   winCanvas: {fileID: 472572499}
-  culpritName: Defendant 3
+  culpritName: Rob
 --- !u!114 &2130076624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8742539203074868006, guid: 36cc8af8b0c680a4ca8548670dde277a, type: 3}
