@@ -51,10 +51,10 @@ National assessments (NAT 2018) reveal a cold truth: Grade 6 students averaged o
 
 <div align="left">
   <a href="github.com/BigDrewChicken"> Ross Andrew Bulaong</a><br>
-  <a> Serge Esguerra<a/> <br>
-  <a> Dave Adriene Madriago<a/> <br>
-  <a> Charles Yexel Palomares<a/> <br>
-  <a> Jamie Kia Rose Reyes<a/> <br>
+  <a href='https://github.com/serv22'> Serge Esguerra<a/> <br>
+  <a href='https://github.com/qdalmadriago-pixel'> Dave Adriene Madriago<a/> <br>
+  <a href='https://github.com/CHARLESYEXELPALOMARES'> Charles Yexel Palomares<a/> <br>
+  <a href='https://github.com/jamierosereyes'> Jamie Kia Rose Reyes<a/> <br>
 </div>
 
 ---
