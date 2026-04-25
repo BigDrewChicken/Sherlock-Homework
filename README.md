@@ -1,7 +1,10 @@
 <p align="center">
-  <a href="https://youtu.be/dQw4w9WgXcQ?si=MKPap4WATqCmW55B">
+  <a href="https://play.unity.com/en/games/41f24883-738b-4e14-89b1-33c364c52ba5/sherlock-homework">
     <img src="README_Assets/HEADER.png" alt="Sherlock Homework Header" width="100%">
   </a>
+  <p align="center">
+    <i> Click this header to play the game!</i>
+  </p>
 </p>
 
 # 🔍 Sherlock Homework
@@ -43,7 +46,26 @@ National assessments (NAT 2018) reveal a cold truth: Grade 6 students averaged o
 * **The Briefing (Adaptive Feedback):** Instant post-action reports help detectives learn from their tactical errors and improve their reasoning for the next lead.
 
 ---
+
+## 👥 Team
+
+<div align="left">
+  <a href="github.com/BigDrewChicken"> Ross Andrew Bulaong</a><br>
+  <a> Serge Esguerra<a/> <br>
+  <a> Dave Adriene Madriago<a/> <br>
+  <a> Charles Yexel Palomares<a/> <br>
+  <a> Jamie Kia Rose Reyes<a/> <br>
+</div>
+
+---
+
 > <i>“Education never ends, Watson. It is a series of lessons, with the greatest for the last.”</i><br>
 > ― Sir Arthur Conan Doyle, His Last Bow
 ---
-*Developed in alignment with **United Nations Sustainable Development Goal 4: Quality Education**.*
+<div>
+  <p align='center'>
+    Developed in alignment with <b>United Nations Sustainable Development Goal 4: Quality Education</b>.
+    Our final project for the subject Interactive Extended Reality (part of the Human Computer Interaction track elective)
+  </p>
+</div>
+
