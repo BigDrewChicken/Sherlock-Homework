@@ -43,7 +43,7 @@ National assessments (NAT 2018) reveal a cold truth: Grade 6 students averaged o
 * **The Cross-Examination:** Don't take their word for it. Review NPC statements, sniff out logical fallacies, and present the "Smoking Gun" clue to crack a false claim.
 * **Forensic Evaluation:** Get hands-on with the evidence. Inspect receipts for math errors or lab equipment for scientific anomalies (like partially melted ice).
 * **Scholastic Noir Aesthetic:** Immerse yourself in a world of coffee-stained paper textures, marker-drawn UI, and low-opacity academic motifs.
-* **The Briefing (Adaptive Feedback):** Instant post-action reports help detectives learn from their tactical errors and improve their reasoning for the next lead..
+* **The Briefing (Adaptive Feedback):** Instant post-action reports help detectives learn from their tactical errors and improve their reasoning for the next lead
 
 ---
 
